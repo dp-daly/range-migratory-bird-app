@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/feed">Migration Feed</a>
+        <% if(user) { %>
+          <a href="/community/<%=user._id%>">My perch</a>
+          <a href="/community/<%=user._id%>/new-sighting">Add a sighting</a>
+          <a href="/auth/sign-out">Sign Out</a>
+        <% } else { %>
+          <a href="/auth/sign-in">Sign In</a>
+          <a href="/auth/sign-up">Sign Up</a>
+        <% } %>
+      </nav>
+</body>
+</html>

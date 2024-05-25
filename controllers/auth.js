@@ -58,11 +58,11 @@ router.get('/register', (req, res) => {
       }
     
       req.session.user = {
+        _id: userInDatabase._id,
         firstname: userInDatabase.firstname,
         email: userInDatabase.email,
         favourites: userInDatabase.favourites,
         sightings: userInDatabase.sightings,
-        _id: userInDatabase._id,
       };
     
       res.redirect('/');
