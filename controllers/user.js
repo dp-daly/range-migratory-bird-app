@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const User = require('../models/user.js');
+
 router.get("/:userId", (req, res) => {
     res.send("This is my perch.")
 })
 
 router.get("/:userId/new-sighting", (req, res) => {
-    res.send('This is where I will add a sighting')
+    res.render("../views/sighting/new-sighting.ejs")
 })
 
 router.get("/:userId/:sightingId/edit", (req, res) => {

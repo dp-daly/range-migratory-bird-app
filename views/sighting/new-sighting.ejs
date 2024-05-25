@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new sighting</title>
+</head>
+<body>
+    <form action="/feed" method="POST">
+        <label for="item">Location:</label>
+        <input type="text" name="location" autocomplete="off">
+        <label for="item">Time:</label>
+        <input type="Text" name="time" autocomplete="off">
+        <label for="item">Timezone:</label>
+        <input type="Text" name="timezone" autocomplete="off">
+        <label for="item">Species:</label>
+        <input type="text" name="species" autocomplete="off">
+        <label for="item">Subspecies:</label>
+        <input type="text" name="subspecies" autocomplete="off">
+        <label for="item">Rare:</label>
+        <input type="checkbox" name="rare" autocomplete="off">
+        <label for="item">Image:</label>
+        <input type="text" name="image" autocomplete="off">
+        <label for="item">Description:</label>
+        <input type="text" name="description" autocomplete="off">
+
+        <button type="submit">Add sighting to migration feed</button>
+</body>
+</html>
+
+
+
+
+
+

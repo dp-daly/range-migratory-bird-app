@@ -20,7 +20,7 @@ const sightingSchema = new mongoose.Schema({
     },
     subspecies: {
         type: String, 
-        required: true, 
+        required: false, 
     },
     rare: {
         type: Boolean,
