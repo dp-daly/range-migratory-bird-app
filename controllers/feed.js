@@ -2,30 +2,22 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
+const Sightings = require('../models/sighting.js');
 
-router.get("/", (req, res) => {
-    res.send("This is the feed.")
+
+router.get("/", async (req, res) => {
+    const sightings = await Sightings.find();
+    console.log(sightings)
+    res.render('../views/feed/feed.ejs', {
+      sightings,
+    })
 })
 
 router.post("/", async (req, res) => {
-    //Push req.body to db sightings array
-    const currentUser = req.session.user;
-    const userInDb = await User.findById(currentUser);
-    userInDb.sightings.push(req.body);
-    await userInDb.save();
-    //Pass only that sightings' details back to the client for rendering
-    const latestSighting = userInDb.sightings[userInDb.sightings.length -1];
-    const { location, time, timezone, species, subspecies, rare, image, description, comments } = latestSighting;
-    res.render("../views/feed/feed.ejs", {
-        location,
-        time,
-        timezone,
-        species,
-        subspecies,
-        rare,
-        image,
-        description,
-        comments,
+    req.body.publisher = req.session.user.userId;
+    const sighting = await Sighting.create(req.body);
+    res.render("../views/sighting/show.ejs", {
+        sighting,
     })
 })
 

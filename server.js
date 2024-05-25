@@ -10,7 +10,7 @@ const session = require('express-session');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const Comment = require('./models/comment');
-const { Sighting, Favourite } = require('./models/sighting');
+const { Sightings, Favourites } = require('./models/sighting');
 const User = require('./models/user');
 
 /*-------------------------------- Controllers/Port --------------------------------*/

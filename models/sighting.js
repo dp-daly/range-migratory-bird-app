@@ -34,6 +34,11 @@ const sightingSchema = new mongoose.Schema({
         type: String, 
         required: true, 
     },
+    publisher: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true,
+    },
     comments: [Comment.schema],
 });
 
@@ -46,5 +51,5 @@ const Sighting = mongoose.model('Sighting', sightingSchema);
 
 module.exports = {
     Sighting,
-    Favourite
+    Favourite,
 };

@@ -6,11 +6,13 @@
     <title>Migration feed</title>
 </head>
 <body>
-    <body>
-        <img src="<%= image %>" alt="<%= species %> <%= subspecies %>" width="400">
-        <h1><%= species %></h1>
-        <h2><%= location %>, <%= time %> <%= timezone %></h2>
-    </body>
+    <ul>
+        <% sightings.forEach(sighting => { %>
+        <li>
+            <%= sighting.species %>
+        </li>
+    <% }) %>
+    </ul>
     </html>
 </body>
 </html>
