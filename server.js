@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
+const Comment = require('./models/comment');
+const { Sighting, Favourite } = require('./models/sighting');
+const User = require('./models/user');
 
 /*-------------------------------- Controllers/Port --------------------------------*/
 
@@ -33,6 +36,7 @@ app.use(
   app.use(express.urlencoded({ extended: false }));
   app.use(methodOverride('_method'));
   app.use(morgan('dev'));
+
 
 /*-------------------------------- Routes --------------------------------*/
 
