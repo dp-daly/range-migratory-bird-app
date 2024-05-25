@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Sighting, Favourite } = require('./sighting');
 
+//Need to remodel the user and sightings schemas so that they refer to one another, rather than embedding them within the user model itself.
 
 const userSchema = new mongoose.Schema({
     firstname: {
