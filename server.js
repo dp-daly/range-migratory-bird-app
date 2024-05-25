@@ -12,6 +12,7 @@ const { Sighting, Favourite } = require('./models/sighting');
 const User = require('./models/user');
 
 /*-------------------------------- Controllers/Port --------------------------------*/
+const authController = require('./controllers/auth.js');
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -35,6 +36,7 @@ app.use(
   
   app.use(express.urlencoded({ extended: false }));
   app.use(methodOverride('_method'));
+  app.use('/auth', authController);
   app.use(morgan('dev'));
 
 

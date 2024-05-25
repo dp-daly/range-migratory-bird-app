@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+
+    <form action="/auth/register" method="POST">
+        <label for="firstname">First name:</label>
+        <input type="text" name="firstname" id="firstname" autocomplete="off"/>
+        <label for="lastname">Last name:</label>
+        <input type="text" name="lastname" id="lastname" autocomplete="off"/>
+        <label for="email">Email address:</label>
+        <input type="text" name="email" id="email" autocomplete="off"/>
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" min="16" max="115" autocomplete="off"/>
+        <label for="email">Location:</label>
+        <input type="text" name="location" id="location" autocomplete="off"/>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" autocomplete="off"/>
+        <label for="confirmPassword">Confirm password:</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" autocomplete="off"/>
+        <button type="submit">Register</button>
+      </form>
+</body>
+</html>
+
