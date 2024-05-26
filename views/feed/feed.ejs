@@ -11,6 +11,11 @@
         <% sightings.forEach(sighting => { %>
         <li>
             <a href="/sighting/<%= sighting._id %>"><%= sighting.species %></a>
+            <% if (sighting.publisher && sighting.publisher.firstname && sighting.publisher.lastname) { %>
+                <i>posted by <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></i>
+            <% } else if (sighting.publisher) { %>
+                <i>posted by Anonymous</i>
+                <% } %>
         </li>
     <% }) %>
     </ul>

@@ -6,7 +6,7 @@ const { Sighting } = require('../models/sighting.js');
 
 
 router.get("/", async (req, res) => {
-    const sightings = await Sighting.find();
+    const sightings = await Sighting.find().populate('publisher');
     res.render('../views/feed/feed.ejs', {
       sightings,
     });
