@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit sighting</title>
+</head>
+<body>
+    </html><%- include('../partials/nav.ejs') %>
+    <form action="/community/<%= user._id %>/<%= foundSighting._id %>?_method=PUT" method="POST">
+        <label for="item">Location:</label>
+        <input type="text" name="location" value="<%= foundSighting.location %>" autocomplete="off">
+        <label for="item">Time:</label>
+        <input type="Text" name="time" value="<%= foundSighting.time %>" autocomplete="off">
+        <label for="item">Timezone:</label>
+        <input type="Text" name="timezone" value="<%= foundSighting.timezone %>"autocomplete="off">
+        <label for="item">Species:</label>
+        <input type="text" name="species" value="<%= foundSighting.species %>" autocomplete="off">
+        <label for="item">Subspecies:</label>
+        <input type="text" name="subspecies" value="<%= foundSighting.subspecies %>" autocomplete="off">
+        <label for="item">Rare:</label>
+        <input type="checkbox" name="rare" value="<%= foundSighting.rare %>" autocomplete="off">
+        <label for="item">Image:</label>
+        <input type="text" name="image" value="<%= foundSighting.image %>" autocomplete="off">
+        <label for="item">Description:</label>
+        <input type="text" name="description" value="<%= foundSighting.description %>"autocomplete="off">
+
+        <button type="submit">Edit sighting</button>
+</body>
+</html>

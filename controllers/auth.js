@@ -13,8 +13,9 @@ router.get('/register', (req, res) => {
   });
   
   router.get('/sign-out', (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
   });
 
   router.post('/register', async (req, res) => {
@@ -22,11 +23,11 @@ router.get('/register', (req, res) => {
       const userInDatabase = await User.findOne({ email: req.body.email });
       if (userInDatabase) {
         return res.send('There is already an account registered with that email address. Try signing in.');
-      }
+      };
     
       if (req.body.password !== req.body.confirmPassword) {
         return res.send('Password and Confirm Password must match');
-      }
+      };
     
       const hashedPassword = bcrypt.hashSync(req.body.password, 10);
       req.body.password = hashedPassword;
@@ -42,7 +43,6 @@ router.get('/register', (req, res) => {
   });
 
   router.post('/sign-in', async (req, res) => {
-    try {
       const userInDatabase = await User.findOne({ email: req.body.email });
       if (!userInDatabase) {
         //! To return for more UX-friendly error handling.
@@ -64,13 +64,10 @@ router.get('/register', (req, res) => {
         favourites: userInDatabase.favourites,
         sightings: userInDatabase.sightings,
       };
-    
-      res.redirect('/');
-    } catch (error) {
-      console.log(error);
-      res.redirect('/');
-    //! To return for more UX-friendly error handling.
-    }
+
+      req.session.save(() => {
+        res.redirect("/");
+      });
   });
 
   module.exports = router; 

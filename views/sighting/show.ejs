@@ -10,5 +10,6 @@
     <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
     <h1><%= sighting.species %></h1>
     <h2><%= sighting.location %>, <%= sighting.time %> <%= sighting.timezone %></h2>
+    <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
 </body>
 </html>
