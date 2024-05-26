@@ -19,14 +19,16 @@
         <label for="item">Subspecies:</label>
         <input type="text" name="subspecies" value="<%= foundSighting.subspecies %>" autocomplete="off">
         <label for="item">Rare:</label>
-        <input type="hidden" name="rare" value="false">
-        <input type="checkbox" name="rare" value="true" <%= foundSighting.rare ? 'checked' : '' %> autocomplete="off">
+        <input type="checkbox" name="rare" <% if (foundSighting.rare) { %>checked<% } %> value="true">
+        <input type="hidden" name="rare" value="false" <% if (!foundSighting.rare) { %>disabled<% } %>>
         <label for="item">Image:</label>
         <input type="text" name="image" value="<%= foundSighting.image %>" autocomplete="off">
         <label for="item">Description:</label>
         <input type="text" name="description" value="<%= foundSighting.description %>"autocomplete="off">
 
         <button type="submit">Edit sighting</button>
+
+        <p>Rare status is: <%= foundSighting.rare %></p>
 
 </body>
 </html>
