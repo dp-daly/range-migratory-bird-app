@@ -37,7 +37,7 @@ const sightingSchema = new mongoose.Schema({
     publisher: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true,
+        required: false,
     },
     comments: [Comment.schema],
 });

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= species %></title>
+    <title><%= sighting.species %></title>
 </head>
 <body>
-    <img src="<%= image %>" alt="<%= species %> <%= subspecies %>" width="400">
-    <h1><%= species %></h1>
-    <h2><%= location %>, <%= time %> <%= timezone %></h2>
+    <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
+    <h1><%= sighting.species %></h1>
+    <h2><%= sighting.location %>, <%= sighting.time %> <%= sighting.timezone %></h2>
 </body>
 </html>
