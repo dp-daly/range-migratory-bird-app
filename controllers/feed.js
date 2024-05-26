@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-    req.body.publisher = req.session.user.userId;
+    req.body.publisher = req.session.user;
     const sighting = await Sighting.create(req.body);
     res.redirect(`/sighting/${sighting._id}`)
 });

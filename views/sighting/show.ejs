@@ -6,6 +6,7 @@
     <title><%= sighting.species %></title>
 </head>
 <body>
+    </html><%- include('../partials/nav.ejs') %>
     <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
     <h1><%= sighting.species %></h1>
     <h2><%= sighting.location %>, <%= sighting.time %> <%= sighting.timezone %></h2>

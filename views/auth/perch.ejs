@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Migration feed</title>
+    <title>My perch</title>
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
+    <h1><%= name %>'s perch</h1>
     <ul>
         <% sightings.forEach(sighting => { %>
         <li>
             <a href="/sighting/<%= sighting._id %>"><%= sighting.species %></a>
         </li>
     <% }) %>
-    </ul>
 </body>
 </html>

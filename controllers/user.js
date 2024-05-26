@@ -2,9 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
+const { Sighting } = require('../models/sighting.js');
 
-router.get("/:userId", (req, res) => {
-    res.send("This is my perch.")
+router.get("/:userId", async (req, res) => {
+    const currentUser = req.session.user;
+    const userInDb = await User.findById(currentUser);
+    console.log("THIS IS MY CONSOLE LOG: " + userInDb)
+    const sightings = await Sighting.find({ publisher: currentUser }).populate()
+    res.render("../views/auth/perch.ejs", {
+        name: userInDb.firstname,
+        sightings,
+    })
 })
 
 router.get("/:userId/new-sighting", (req, res) => {
