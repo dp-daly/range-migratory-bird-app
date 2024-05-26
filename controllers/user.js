@@ -31,5 +31,9 @@ router.put("/:userId/:sightingId", async (req, res) => {
     res.redirect(`/sighting/${req.params.sightingId}`)
 })
 
+router.delete("/:userId/:sightingId", async (req, res) => {
+    const deletedSighting = await Sighting.findByIdAndDelete(req.params.sightingId)
+    res.redirect(`/community/${req.params.userId}`)
+})
 
 module.exports = router;
