@@ -24,6 +24,7 @@ const sightingSchema = new mongoose.Schema({
     },
     rare: {
         type: Boolean,
+        set: v => v === 'on',
         default: false,
     },
     image: {
