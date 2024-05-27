@@ -36,4 +36,16 @@ router.delete("/:userId/:sightingId", async (req, res) => {
     res.redirect(`/community/${req.params.userId}`)
 })
 
+router.post("/:userId/:sightingId", async (req, res) => {
+    const foundSighting = await Sighting.findById(req.params.sightingId);
+    const commenter = await User.findById(req.params.userId);
+    const newComment = {
+        text: req.body.text,
+        commenter: `${commenter.firstname} ${commenter.lastname}`,
+    };
+    foundSighting.comments.push(newComment);
+    await foundSighting.save();
+    res.redirect(`/sighting/${req.params.sightingId}`)
+})
+
 module.exports = router;

@@ -23,7 +23,6 @@ const userController = require('./controllers/user.js');
 const port = process.env.PORT ? process.env.PORT : '3000';
 
 /*-------------------------------- DB Connect --------------------------------*/
-
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -31,7 +30,6 @@ mongoose.connection.on('connected', () => {
 });
 
 /*-------------------------------- Middleware --------------------------------*/
-
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -55,13 +53,11 @@ app.use(
 
 
 /*-------------------------------- Routes --------------------------------*/
-
 app.get("/", (req, res) => {
     res.render("index.ejs")
 })
 
 /*-------------------------------- Listener --------------------------------*/
-
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);
   });
