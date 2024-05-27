@@ -10,6 +10,9 @@
     <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
     <h1><%= sighting.species %></h1>
     <h2><%= sighting.location %>, <%= sighting.time %> <%= sighting.timezone %></h2>
+    <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
+        <button class="btn" type="submit">Add to favourites</button>
+        <br><p>To be conditionally rendered if user is publisher:</p>
     <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
     <form action="/community/<%= user._id %>/<%= sighting._id %>?_method=DELETE" method="POST">
         <button class="btn" type="submit">Remove sighting</button>
