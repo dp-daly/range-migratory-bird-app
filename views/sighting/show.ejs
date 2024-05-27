@@ -20,11 +20,12 @@
         <textarea type="text" name="text" id="text"></textarea>
 
         <button type="submit">Add comment</button>
+        <br>
         <% if (comments) { %>
             <% comments.forEach((comment) => { %>
-                <ul>
-                <li><%= comment %></li>
-                </ul>
+                <b><%= comment.commenter %></b><br>
+                <%= comment.text %>
+                <br>
            <% }) %>
            <% } %>
 </body>
