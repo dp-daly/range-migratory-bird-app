@@ -18,6 +18,7 @@ function getDate() {
 }
 
 /*-------------------------------- Routes --------------------------------*/
+
 router.get("/:userId", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate('favourites');
@@ -50,7 +51,25 @@ router.put("/:userId/:sightingId", async (req, res) => {
 })
 
 router.delete("/:userId/:sightingId", async (req, res) => {
-    const deletedSighting = await Sighting.findByIdAndDelete(req.params.sightingId)
+    const deletedSighting = await Sighting.findByIdAndDelete(req.params.sightingId);
+    console.log(deletedSighting);
+    res.redirect(`/community/${req.params.userId}`);
+});
+
+router.post("/:userId/:sightingId/favourites", async (req, res) => {
+    const currentUser = req.session.user;
+    const userInDb = await User.findById(currentUser);
+    userInDb.favourites.push(req.params.sightingId);
+    await userInDb.save();
+    res.redirect(`/community/${req.params.userId}`);
+});
+
+router.delete("/:userId/:sightingId/favourites", async (req, res) => {
+    console.log("WHACK")
+    const currentUser = req.session.user;
+    const userInDb = await User.findById(currentUser);
+    userInDb.favourites.pull(req.params.sightingId)
+    await userInDb.save();
     res.redirect(`/community/${req.params.userId}`)
 })
 
@@ -64,22 +83,6 @@ router.post("/:userId/:sightingId", async (req, res) => {
     foundSighting.comments.push(newComment);
     await foundSighting.save();
     res.redirect(`/sighting/${req.params.sightingId}`)
-})
-
-router.post("/:userId/:sightingId/favourites", async (req, res) => {
-    const currentUser = req.session.user;
-    const userInDb = await User.findById(currentUser);
-    userInDb.favourites.push(req.params.sightingId);
-    await userInDb.save();
-    res.redirect(`/community/${req.params.userId}`)
-})
-
-router.delete("/:userId/:sightingId/favourites", async (req, res) => {
-    const currentUser = req.session.user;
-    const userInDb = await User.findById(currentUser);
-    userInDb.favourites.pull(`${req.params.sightingId}`)
-    await userInDb.save();
-    res.redirect(`/community/${req.params.userId}`)
 })
 
 module.exports = router;

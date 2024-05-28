@@ -30,6 +30,12 @@ mongoose.connection.on('connected', () => {
 });
 
 /*-------------------------------- Middleware --------------------------------*/
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+app.use(morgan('dev'));
+
+
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -49,15 +55,12 @@ app.use(
     next();
   });
   
-  app.use(express.urlencoded({ extended: false }));
-  app.use(methodOverride('_method'));
   app.use(passUserToView)
   app.use('/feed', feedController);
   app.use('/sighting', sightingController);
   app.use('/auth', authController);
-  app.use('/community', isSignedIn);
-  app.use('/community', userController);
-  app.use(morgan('dev'));
+//   app.use('/community', isSignedIn);
+  app.use('/community', isSignedIn, userController);
 
 
 /*-------------------------------- Routes --------------------------------*/

@@ -7,7 +7,11 @@
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
+
+    <!-- Tailored heading -->
     <h1><%= name %>'s perch</h1>
+
+    <!-- List of sightings uploaded by the user -->
     <h3>Sightings</h3>
     <ul>
         <% sightings.forEach(sighting => { %>
@@ -17,12 +21,13 @@
     <% }) %>
     </ul>
 
-
+    <!-- Favourites -->
     <h3>Favourites</h3>
     <% if (favourites && favourites.length > 0) { %>
         <ul>
             <% favourites.forEach(favourite => { %>
                 <li><a href="../sighting/<%= favourite._id %>"><%= favourite.species %></li></a>
+                 <!-- Remove favourite -->
                 <form action="/community/<%= user._id %>/<%= favourite._id %>/favourites?_method=DELETE" method="POST">
                     <button class="btn" type="submit">Remove favourite</button>
                   </form>

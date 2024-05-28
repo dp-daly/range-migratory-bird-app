@@ -7,6 +7,8 @@
 </head>
 <body>
     </html><%- include('../partials/nav.ejs') %>
+
+    <!-- PUT existing sighting form -->
     <form action="/community/<%= user._id %>/<%= foundSighting._id %>?_method=PUT" method="POST">
         <label for="location">Location:</label>
         <input type="text" name="location" value="<%= foundSighting.location %>" autocomplete="off">
@@ -34,8 +36,6 @@
         <input type="text" name="description" value="<%= foundSighting.description %>"autocomplete="off">
 
         <button type="submit">Edit sighting</button>
-
-        <p>Rare status is: <%= foundSighting.rare %></p>
-
+    </form>
 </body>
 </html>
