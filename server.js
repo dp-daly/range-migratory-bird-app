@@ -40,6 +40,14 @@ app.use(
       }),
     })
   );
+
+  app.use((req, res, next) => {
+    if (req.session.message) {
+      res.locals.message = req.session.message;
+      req.session.message = null;
+    }
+    next();
+  });
   
   app.use(express.urlencoded({ extended: false }));
   app.use(methodOverride('_method'));

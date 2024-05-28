@@ -7,9 +7,12 @@
 </head>
 <body>
     </html><%- include('../partials/nav.ejs') %>
+    <% if (typeof message !== 'undefined') { %>
+        <p style="background-color:rgb(71, 255, 129);"><%= message %></p>
+        <% } %>
     <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
     <h1><%= sighting.species %></h1>
-    <h2><%= sighting.location %>, <%= sighting.time %> <%= sighting.timezone %></h2>
+    <h2><%= sighting.location %>, <%= sighting.date %>, <%= sighting.time %></h2>
     <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
         <button class="btn" type="submit">Add to favourites</button>
         <br><p>To be conditionally rendered if user is publisher:</p>

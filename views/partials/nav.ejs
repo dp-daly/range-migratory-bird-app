@@ -8,13 +8,13 @@
 <body>
     <nav>
         <a href="/">Home</a>
-        <a href="/feed">Migration Feed</a>
+        <a href="/feed">Migration feed</a>
         <% if(user) { %>
           <a href="/community/<%=user._id%>">My perch</a>
           <a href="/community/<%=user._id%>/new-sighting">Add a sighting</a>
-          <a href="/auth/sign-out">Sign Out</a>
+          <a href="/auth/sign-out">Sign out</a>
         <% } else { %>
-          <a href="/auth/sign-in">Sign In</a>
+          <a href="/auth/sign-in">Sign in</a>
           <a href="/auth/register">Register</a>
         <% } %>
       </nav>
