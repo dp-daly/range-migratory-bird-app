@@ -19,10 +19,14 @@ function getDate() {
 
 /*-------------------------------- Routes --------------------------------*/
 router.get("/", async (req, res) => {
+  try {
     const sightings = await Sighting.find().populate('publisher');
     res.render('../views/feed/feed.ejs', {
       sightings,
     });
+  } catch (err) {
+    res.render("error.ejs", {systemErrorMessage: err.message});
+  }
 });
 
 router.post("/", async (req, res) => {
@@ -54,12 +58,21 @@ router.post("/", async (req, res) => {
       date: dateToday,
     });
   } else {
+    try {
     req.body.publisher = req.session.user;
     const sighting = await Sighting.create(req.body);
     req.session.message = `Your ${req.body.species} sighting has been successfully added to the migration feed.`;
     res.redirect(`/sighting/${sighting._id}`);
-  }
+} catch (err) {
+  req.session.message = `There was an error adding your sighting to the migration feed: ${err.message}`;
+  res.render('../views/sighting/new-sighting.ejs', { 
+    systemErrorMessage: err.message,
+    formData: req.body,
+  });
+}
+}
 });
+
 
 
 module.exports = router; 

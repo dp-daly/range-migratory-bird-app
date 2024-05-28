@@ -15,11 +15,12 @@ function getDate() {
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
     dateToday = yyyy + '-' + mm + '-' + dd;
-}
+};
 
 /*-------------------------------- Routes --------------------------------*/
 
 router.get("/:userId", async (req, res) => {
+    try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate('favourites');
     const sightings = await Sighting.find({ publisher: currentUser }).populate();
@@ -28,52 +29,78 @@ router.get("/:userId", async (req, res) => {
         favourites: userInDb.favourites,
         sightings,
     });
+    } catch (err) {
+        res.render("error.ejs", {systemErrorMessage: err.message});
+    };
 });
 
 router.get("/:userId/new-sighting", (req, res) => {
+    try {
     getDate();
     res.render("../views/sighting/new-sighting.ejs", {
         date: dateToday,
     });
+    } catch (err) {
+    res.render("error.ejs", {systemErrorMessage: err.message});
+    };
 });
 
 router.get("/:userId/:sightingId/edit", async (req, res) => {
-    //! To return: need to add restriction that stops people from editing others' posts if they can access their userId.
+    try {
     const foundSighting = await Sighting.findById(req.params.sightingId);
     res.render("../views/sighting/edit-sighting.ejs", {
         foundSighting,
     });
+    } catch (err) {
+    res.render("error.ejs", {systemErrorMessage: err.message});
+    };
 });
 
 router.put("/:userId/:sightingId", async (req, res) => {
+    try {
     const updatedSighting = await Sighting.findByIdAndUpdate(req.params.sightingId, req.body);
-    res.redirect(`/sighting/${req.params.sightingId}`)
-})
+    res.redirect(`/sighting/${req.params.sightingId}`);
+    } catch (err) {
+        res.render("error.ejs", {systemErrorMessage: err.message});
+    };
+});
 
 router.delete("/:userId/:sightingId", async (req, res) => {
+    try {
     const deletedSighting = await Sighting.findByIdAndDelete(req.params.sightingId);
     console.log(deletedSighting);
     res.redirect(`/community/${req.params.userId}`);
+    } catch (err) {
+        res.render("error.ejs", {systemErrorMessage: err.message});
+    };
 });
 
 router.post("/:userId/:sightingId/favourites", async (req, res) => {
+    try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
     userInDb.favourites.push(req.params.sightingId);
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`);
+    } catch (err) {
+        res.render("error.ejs", {systemErrorMessage: err.message});
+    };
 });
 
 router.delete("/:userId/:sightingId/favourites", async (req, res) => {
-    console.log("WHACK")
+    try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
     userInDb.favourites.pull(req.params.sightingId)
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`)
-})
+    } catch {
+        res.render("error.ejs", {systemErrorMessage: err.message});
+    };
+});
 
 router.post("/:userId/:sightingId", async (req, res) => {
+    try {
     const foundSighting = await Sighting.findById(req.params.sightingId);
     const commenter = await User.findById(req.params.userId);
     const newComment = {
@@ -83,6 +110,9 @@ router.post("/:userId/:sightingId", async (req, res) => {
     foundSighting.comments.push(newComment);
     await foundSighting.save();
     res.redirect(`/sighting/${req.params.sightingId}`)
-})
+    } catch (err) {
+    res.render("error.ejs", {systemErrorMessage: err.message});
+    };
+});
 
 module.exports = router;

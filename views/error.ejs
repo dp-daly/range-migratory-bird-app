@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Error</title>
 </head>
 <body>
     </html><%- include('./partials/nav.ejs') %>
-    
+    <h1>Error</h1>
+    <p><%= systemErrorMessage %></p>
+    <button onclick="window.history.back()">Go Back</button>
 </body>

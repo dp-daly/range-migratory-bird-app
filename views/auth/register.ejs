@@ -8,6 +8,27 @@
 <body>
     <%- include('../partials/nav.ejs') %>
 
+    <!-- Validation errors -->
+    <% if (typeof valErrorMessages !== 'undefined' && valErrorMessages && valErrorMessages.length > 0) { %>
+        <p style="background-color:rgb(255, 148, 71);">Form validation error:<br> 
+            <ul>
+            <% valErrorMessages.forEach((err) => { %>
+            <li><%= err %></li>
+            <% }); %>
+            </ul>
+        </p>
+      <% } %>
+    
+    <!-- System error messages -->
+    <% if (typeof systemErrorMessage !== 'undefined') { %>
+        <p style="background-color:Tomato;">Unexpected system error. Please see more details below:<br>
+            <ul>
+                <li><%= systemErrorMessage %></p></li>
+            </ul>
+        </p>
+        <% } %>
+
+    <!-- POST new user form -->
     <h1>Register</h1>
 
     <form action="/auth/register" method="POST">

@@ -19,10 +19,19 @@
         </p>
       <% } %>
 
+      <!-- System error messages -->
+      <% if (typeof systemErrorMessage !== 'undefined') { %>
+        <p style="background-color:Tomato;">Unexpected system error. Please see more details below:<br>
+        <ul>
+          <li><%= systemErrorMessage %></p></li>
+        </ul>
+      </p>
+      <% } %>
+
     <!-- POST new sighting form -->
     <form action="/feed" method="POST">
         <label for="location">Location:</label>
-        <input type="text" name="location" autocomplete="off">
+        <input type="text" name="location" value="<%= typeof formData !== 'undefined' ? formData.location : '' %>"  autocomplete="off">
         <label for="date">Date:</label>
         <input type="text" name="date" value="<%= date %>" autocomplete="off">
         <label for="time">Time:</label>
@@ -35,15 +44,15 @@
             <option value="Night">Night</option>
         </select>        
         <label for="species">Species:</label>
-        <input type="text" name="species" autocomplete="off">
+        <input type="text" name="species" value="<%= typeof formData !== 'undefined' ? formData.species : '' %>" autocomplete="off">
         <label for="subspecies">Subspecies <i>(optional)</i>:</label>
-        <input type="text" name="subspecies" autocomplete="off">
+        <input type="text" name="subspecies" value="<%= typeof formData !== 'undefined' ? formData.subspecies : '' %>" autocomplete="off">
         <label for="rare">Rare:</label>
         <input type="checkbox" name="rare" value="true" autocomplete="off">
         <label for="image">Image:</label>
-        <input type="text" name="image" autocomplete="off">
+        <input type="text" name="image" value="<%= typeof formData !== 'undefined' ? formData.image : '' %>" autocomplete="off">
         <label for="description">Description <i>(optional)</i>:</label>
-        <input type="text" name="description" autocomplete="off">
+        <input type="text" name="description" value="<%= typeof formData !== 'undefined' ? formData.description : '' %>"  autocomplete="off">
 
         <button type="submit">Add sighting to migration feed</button>
     </form>

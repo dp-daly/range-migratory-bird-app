@@ -7,6 +7,24 @@
 </head>
 <body>
     <%- include('../partials/nav.ejs') %>
+
+       <!-- Validation errors -->
+       <% if (typeof valErrorMessages !== 'undefined' && valErrorMessages && valErrorMessages.length > 0) { %>
+        <p style="background-color:rgb(255, 148, 71);">Form validation error:<br> 
+            <ul>
+            <% valErrorMessages.forEach((err) => { %>
+            <li><%= err %></li>
+            <% }); %>
+            </ul>
+        </p>
+      <% } %>
+
+   <!-- Successful account creation or problem logging in flash message -->
+   <% if (typeof message !== 'undefined') { %>
+    <p style="background-color:rgb(201, 206, 201);"><%= message %></p>
+    <% } %>
+
+    <!-- Sign-in form -->
     <h1>Sign in!</h1>
     <form action="/auth/sign-in" method="POST">
         <label for="email">Email address:</label>
