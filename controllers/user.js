@@ -35,6 +35,7 @@ router.get("/:userId", async (req, res) => {
 });
 
 router.get("/:userId/new-sighting", (req, res) => {
+    if (req.session.user) {
     try {
     getDate();
     res.render("../views/sighting/new-sighting.ejs", {
@@ -43,17 +44,27 @@ router.get("/:userId/new-sighting", (req, res) => {
     } catch (err) {
     res.render("error.ejs", {systemErrorMessage: err.message});
     };
+} else {
+    res.redirect("/auth/sign-in")
+}
 });
 
 router.get("/:userId/:sightingId/edit", async (req, res) => {
-    try {
-    const foundSighting = await Sighting.findById(req.params.sightingId);
+    const foundSighting = await Sighting.findById(req.params.sightingId).populate('publisher')
+    const publisher = foundSighting.publisher._id.toString();
+    if (req.params.userId === publisher) {
+        try {
     res.render("../views/sighting/edit-sighting.ejs", {
         foundSighting,
     });
     } catch (err) {
-    res.render("error.ejs", {systemErrorMessage: err.message});
+    res.render("error.ejs", {
+        systemErrorMessage: err.message,
+    });
     };
+} else {
+    res.redirect("/")
+}
 });
 
 router.put("/:userId/:sightingId", async (req, res) => {
