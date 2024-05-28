@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
+const path = require("path");
 const MongoStore = require("connect-mongo");
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
@@ -34,7 +35,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
-
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
     session({
@@ -67,6 +68,10 @@ app.use(
 app.get("/", (req, res) => {
     res.render("index.ejs")
 })
+
+app.get("*", function (req, res) {
+  res.render("error.ejs", { systemErrorMessage: "Error 404: Page not found." });
+});
 
 /*-------------------------------- Listener --------------------------------*/
 app.listen(port, () => {

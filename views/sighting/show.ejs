@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
     <title><%= sighting.species %></title>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
         <button class="btn" type="submit">Add to favourites</button>
     </form>
-    
+
     <!-- Edit details / remove sighting -->
     <br><p>To be conditionally rendered if user is publisher:</p>
     <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
