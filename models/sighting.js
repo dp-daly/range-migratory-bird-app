@@ -6,11 +6,11 @@ const sightingSchema = new mongoose.Schema({
         type: String, 
         required: true, 
     },
-    time: {
-        type: Number, 
-        required: true, 
+    date: {
+        type: String,
+        required: true,
     },
-    timezone: {
+    time: {
         type: String, 
         required: true, 
     },

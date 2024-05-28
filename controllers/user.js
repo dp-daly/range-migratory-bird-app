@@ -4,6 +4,16 @@ const router = express.Router();
 const User = require('../models/user.js');
 const Sighting = require('../models/sighting.js');
 
+let dateToday = ""
+
+function getDate() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    dateToday = yyyy + '-' + mm + '-' + dd;
+}
+
 router.get("/:userId", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate('favourites');
@@ -16,7 +26,10 @@ router.get("/:userId", async (req, res) => {
 });
 
 router.get("/:userId/new-sighting", (req, res) => {
-    res.render("../views/sighting/new-sighting.ejs");
+    getDate();
+    res.render("../views/sighting/new-sighting.ejs", {
+        date: dateToday,
+    });
 });
 
 router.get("/:userId/:sightingId/edit", async (req, res) => {
@@ -52,7 +65,7 @@ router.post("/:userId/:sightingId", async (req, res) => {
 router.post("/:userId/:sightingId/favourites", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
-    userInDb.favourites.push(req.params.sightingId)
+    userInDb.favourites.push(req.params.sightingId);
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`)
 })

@@ -8,21 +8,28 @@
 <body>
     </html><%- include('../partials/nav.ejs') %>
     <form action="/feed" method="POST">
-        <label for="item">Location:</label>
+        <label for="location">Location:</label>
         <input type="text" name="location" autocomplete="off">
-        <label for="item">Time:</label>
-        <input type="Text" name="time" autocomplete="off">
-        <label for="item">Timezone:</label>
-        <input type="Text" name="timezone" autocomplete="off">
-        <label for="item">Species:</label>
+        <label for="date">Date:</label>
+        <input type="text" name="date" value="<%= date %>" autocomplete="off">
+        <label for="time">Time:</label>
+        <select type="text" name="time">
+            <option value="Early morning">Early morning</option>
+            <option value="Mid-morning<">Mid-morning</option>
+            <option value="Early afternoon">Early afternoon</option>
+            <option value="Late afternoon">Late afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+        </select>        
+        <label for="species">Species:</label>
         <input type="text" name="species" autocomplete="off">
-        <label for="item">Subspecies:</label>
+        <label for="subspecies">Subspecies:</label>
         <input type="text" name="subspecies" autocomplete="off">
-        <label for="item">Rare:</label>
+        <label for="rare">Rare:</label>
         <input type="checkbox" name="rare" value="true" autocomplete="off">
-        <label for="item">Image:</label>
+        <label for="image">Image:</label>
         <input type="text" name="image" autocomplete="off">
-        <label for="item">Description:</label>
+        <label for="description">Description:</label>
         <input type="text" name="description" autocomplete="off">
 
         <button type="submit">Add sighting to migration feed</button>
