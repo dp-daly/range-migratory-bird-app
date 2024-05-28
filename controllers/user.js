@@ -52,8 +52,7 @@ router.post("/:userId/:sightingId", async (req, res) => {
 router.post("/:userId/:sightingId/favourites", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
-    const foundSighting = await Sighting.findById(req.params.sightingId);
-    userInDb.favourites.push(foundSighting._id)
+    userInDb.favourites.push(req.params.sightingId)
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`)
 })
