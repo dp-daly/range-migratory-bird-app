@@ -14,5 +14,18 @@
             <a href="../sighting/<%= sighting._id %>"><%= sighting.species %></a>
         </li>
     <% }) %>
+    </ul>
+
+
+    <h3>Favourites</h3>
+    <% if (favourites && favourites.length > 0) { %>
+        <ul>
+            <% favourites.forEach(favourite => { %>
+                <li><%= favourite.species %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No favourites found.</p>
+    <% } %>
 </body>
 </html>

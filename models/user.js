@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Sighting, Favourite } = require('./sighting');
+const Sighting = require('./sighting');
 
 const userSchema = new mongoose.Schema({
     firstname: {
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     },
     favourites: [{
         type: mongoose.Schema.ObjectId,
-        ref: 'Favourites',
+        ref: 'Sighting',
     }],
   });
   

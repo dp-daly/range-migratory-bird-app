@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
-const { Sighting } = require('../models/sighting.js');
+const Sighting = require('../models/sighting.js');
 const Comment = require('../models/comment.js');
 
 

@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
-const { Sighting } = require('../models/sighting.js');
+const Sighting = require('../models/sighting.js');
 
 router.get("/:userId", async (req, res) => {
     const currentUser = req.session.user;
-    const userInDb = await User.findById(currentUser);
+    const userInDb = await User.findById(currentUser).populate('favourites');
     const sightings = await Sighting.find({ publisher: currentUser }).populate();
+    console.log("THIS IS MY CONSOLE LOG OF FAVOURITES:", userInDb.favourites);
     res.render("../views/auth/perch.ejs", {
         name: userInDb.firstname,
+        favourites: userInDb.favourites,
         sightings,
     });
 });
@@ -52,7 +54,7 @@ router.post("/:userId/:sightingId/favourites", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
     const foundSighting = await Sighting.findById(req.params.sightingId);
-    userInDb.favourites.push(foundSighting)
+    userInDb.favourites.push(foundSighting._id)
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`)
 })

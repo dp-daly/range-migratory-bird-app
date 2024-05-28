@@ -42,14 +42,6 @@ const sightingSchema = new mongoose.Schema({
     comments: [Comment.schema],
 });
 
-const favouriteSchema = new mongoose.Schema({
-    favourite: {type: mongoose.Schema.ObjectId, required: true, ref: "Sighting"}
-});
-
-const Favourite = mongoose.model('Favourite', favouriteSchema);
 const Sighting = mongoose.model('Sighting', sightingSchema);
 
-module.exports = {
-    Sighting,
-    Favourite,
-};
+module.exports = Sighting;
