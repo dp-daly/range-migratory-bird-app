@@ -9,6 +9,10 @@
 <body>
     <%- include('../partials/nav.ejs') %>
 
+    <% if (typeof message !== 'undefined') { %>
+        <p style="background-color:rgb(246, 71, 255);"><%= message %></p>
+        <% } %>
+
     <!-- Tailored heading -->
     <h1><%= name %>'s perch</h1>
 

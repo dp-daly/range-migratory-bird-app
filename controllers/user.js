@@ -69,8 +69,8 @@ router.get("/:userId/:sightingId/edit", async (req, res) => {
 
 router.put("/:userId/:sightingId", async (req, res) => {
     try {
-    const updatedSighting = await Sighting.findByIdAndUpdate(req.params.sightingId, req.body);
-    res.redirect(`/sighting/${req.params.sightingId}`);
+        const updatedSighting = await Sighting.findByIdAndUpdate(req.params.sightingId, req.body);
+        res.redirect(`/sighting/${req.params.sightingId}`);
     } catch (err) {
         res.render("error.ejs", {systemErrorMessage: err.message});
     };
@@ -79,7 +79,6 @@ router.put("/:userId/:sightingId", async (req, res) => {
 router.delete("/:userId/:sightingId", async (req, res) => {
     try {
     const deletedSighting = await Sighting.findByIdAndDelete(req.params.sightingId);
-    console.log(deletedSighting);
     res.redirect(`/community/${req.params.userId}`);
     } catch (err) {
         res.render("error.ejs", {systemErrorMessage: err.message});
@@ -90,9 +89,16 @@ router.post("/:userId/:sightingId/favourites", async (req, res) => {
     try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
+    const favouriteInDb = userInDb.favourites.includes(req.params.sightingId);
+
+    if (favouriteInDb === false) {
     userInDb.favourites.push(req.params.sightingId);
     await userInDb.save();
     res.redirect(`/community/${req.params.userId}`);
+    } else {
+        req.session.message = "This sighting is already in your favourites"
+        res.redirect(`/community/${req.params.userId}`);
+    }
     } catch (err) {
         res.render("error.ejs", {systemErrorMessage: err.message});
     };
@@ -122,7 +128,7 @@ router.post("/:userId/:sightingId", async (req, res) => {
     await foundSighting.save();
     res.redirect(`/sighting/${req.params.sightingId}`)
     } catch (err) {
-    res.render("error.ejs", {systemErrorMessage: err.message});
+        res.render("error.ejs", {systemErrorMessage: err.message});
     };
 });
 
