@@ -18,7 +18,7 @@
         <button class="btn" type="submit">Remove sighting</button>
       </form>
     <h3>Comments</h3>
-    <form action="/community/<%= user._id %>/<%=sighting._id%>" method="POST">
+    <form action="/community/<%= user._id %>/<%= sighting._id %>" method="POST">
         <label for="text">Your comment:</label>
         <textarea type="text" name="text" id="text"></textarea>
 

@@ -8,6 +8,7 @@
 <body>
     <%- include('../partials/nav.ejs') %>
     <h1><%= name %>'s perch</h1>
+    <h3>Sightings</h3>
     <ul>
         <% sightings.forEach(sighting => { %>
         <li>
@@ -21,8 +22,11 @@
     <% if (favourites && favourites.length > 0) { %>
         <ul>
             <% favourites.forEach(favourite => { %>
-                <li><%= favourite.species %></li>
-            <% }) %>
+                <li><a href="../sighting/<%= favourite._id %>"><%= favourite.species %></li></a>
+                <form action="/community/<%= user._id %>/<%= favourite._id %>/favourites?_method=DELETE" method="POST">
+                    <button class="btn" type="submit">Remove favourite</button>
+                  </form>
+            <% }) %> 
         </ul>
     <% } else { %>
         <p>No favourites found.</p>
