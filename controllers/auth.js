@@ -1,9 +1,11 @@
+/*-------------------------------- Dependencies --------------------------------*/
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 
+/*-------------------------------- Routes --------------------------------*/
 router.get('/register', (req, res) => {
     res.render('auth/register.ejs');
   });

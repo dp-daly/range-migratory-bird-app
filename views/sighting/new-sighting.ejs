@@ -7,6 +7,17 @@
 </head>
 <body>
     </html><%- include('../partials/nav.ejs') %>
+
+    <% if (typeof valErrorMessages !== 'undefined' && valErrorMessages && valErrorMessages.length > 0) { %>
+        <p style="background-color:rgb(255, 148, 71);">Form validation error:<br> 
+            <ul>
+            <% valErrorMessages.forEach((err) => { %>
+            <li><%= err %></li>
+            <% }); %>
+            </ul>
+        </p>
+      <% } %>
+
     <form action="/feed" method="POST">
         <label for="location">Location:</label>
         <input type="text" name="location" autocomplete="off">
@@ -23,13 +34,13 @@
         </select>        
         <label for="species">Species:</label>
         <input type="text" name="species" autocomplete="off">
-        <label for="subspecies">Subspecies:</label>
+        <label for="subspecies">Subspecies <i>(optional)</i>:</label>
         <input type="text" name="subspecies" autocomplete="off">
         <label for="rare">Rare:</label>
         <input type="checkbox" name="rare" value="true" autocomplete="off">
         <label for="image">Image:</label>
         <input type="text" name="image" autocomplete="off">
-        <label for="description">Description:</label>
+        <label for="description">Description <i>(optional)</i>:</label>
         <input type="text" name="description" autocomplete="off">
 
         <button type="submit">Add sighting to migration feed</button>

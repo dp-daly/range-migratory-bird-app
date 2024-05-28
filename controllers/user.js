@@ -1,9 +1,12 @@
+/*-------------------------------- Dependencies --------------------------------*/
+
 const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user.js');
 const Sighting = require('../models/sighting.js');
 
+/*-------------------------------- Date assignment to prefill new sighting form --------------------------------*/
 let dateToday = ""
 
 function getDate() {
@@ -14,6 +17,7 @@ function getDate() {
     dateToday = yyyy + '-' + mm + '-' + dd;
 }
 
+/*-------------------------------- Routes --------------------------------*/
 router.get("/:userId", async (req, res) => {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate('favourites');

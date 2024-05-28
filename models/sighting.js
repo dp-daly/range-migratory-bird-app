@@ -32,7 +32,7 @@ const sightingSchema = new mongoose.Schema({
     },
     description: {
         type: String, 
-        required: true, 
+        required: false, 
     },
     publisher: {
         type: mongoose.Schema.ObjectId,

@@ -11,7 +11,7 @@ const MongoStore = require("connect-mongo");
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const Comment = require('./models/comment');
-const { Sightings, Favourites } = require('./models/sighting');
+const Sightings = require('./models/sighting');
 const User = require('./models/user');
 
 /*-------------------------------- Controllers/Port --------------------------------*/

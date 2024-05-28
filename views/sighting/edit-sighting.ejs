@@ -23,14 +23,14 @@
         </select>        
         <label for="species">Species:</label>
         <input type="text" name="species" value="<%= foundSighting.species %>" autocomplete="off">
-        <label for="subspecies">Subspecies:</label>
+        <label for="subspecies">Subspecies <i>(optional)</i>:</label>
         <input type="text" name="subspecies" value="<%= foundSighting.subspecies %>" autocomplete="off">
         <label for="rare">Rare:</label>
         <input type="checkbox" name="rare" <% if (foundSighting.rare) { %>checked<% } %> value="true">
         <input type="hidden" name="rare" value="false" <% if (!foundSighting.rare) { %>disabled<% } %>>
         <label for="image">Image:</label>
         <input type="text" name="image" value="<%= foundSighting.image %>" autocomplete="off">
-        <label for="description">Description:</label>
+        <label for="description">Description <i>(optional)</i>:</label>
         <input type="text" name="description" value="<%= foundSighting.description %>"autocomplete="off">
 
         <button type="submit">Edit sighting</button>
