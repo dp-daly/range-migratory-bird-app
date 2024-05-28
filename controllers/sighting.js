@@ -10,10 +10,14 @@ router.get("/:sightingId", async (req, res) => {
     if (req.session.user) {
         try {
             const sighting = await Sighting.findById(req.params.sightingId);
+            const currentUser = req.session.user._id;
+            const publisher = sighting.publisher.toString();
             const comments = sighting.comments;
             res.render("../views/sighting/show.ejs", {
                 sighting,
                 comments,
+                publisher,
+                currentUser,
             });
         } catch (err) {
             res.render("error.ejs", {systemErrorMessage: err.message});

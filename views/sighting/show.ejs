@@ -24,6 +24,7 @@
         <button class="btn" type="submit">Add to favourites</button>
     </form>
 
+    <% if (currentUser === publisher) { %>
     <!-- Edit details / remove sighting -->
     <br><p>To be conditionally rendered if user is publisher:</p>
     <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
@@ -31,6 +32,7 @@
     <form action="/community/<%= user._id %>/<%= sighting._id %>?_method=DELETE" method="POST">
         <button class="btn" type="submit">Remove sighting</button>
     </form>
+    <% } %>
 
     <!-- Comments section -->
     <h3>Comments</h3>
