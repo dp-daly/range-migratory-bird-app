@@ -70,7 +70,7 @@
         <% if (comments) { %>
             <% comments.forEach((comment) => { %>
                 <div id="comment">
-                <span id="commenter"><%= comment.commenter %></span>
+                <span id="commenter"><%= comment.commenter %>, <%= comment.createdAt %></span>
                 <br>
                 <br>
                 <%= comment.text %>
