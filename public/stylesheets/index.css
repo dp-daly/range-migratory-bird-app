@@ -1,0 +1,48 @@
+#text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 200vh;
+    margin: 0px 60px 0px 60px;
+}
+
+.hero {
+    display: flex;
+    height: 30%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px; 
+    background-image: url('https://assets-global.website-files.com/5e8ffd61d516146f7ddc860b/5f5f8d12c1e58d003564e9c3_Sandhill-Cranes_Migration_1.jpg');
+    background-size: cover; 
+}
+
+.box-wrapper {
+    display: flex;
+    height: 27%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px 20px 20px; 
+    border: 2px solid black;
+}
+
+.img-placeholder {
+    width: 300px;
+    height: 270px;
+    background-color: gray;
+    border-radius: 8px;
+  }
+  
+.card-footer {
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    height: 20px;
+  }
+  
+.card-footer * {
+    margin-top: 8px;
+  }
+  

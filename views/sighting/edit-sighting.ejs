@@ -7,8 +7,10 @@
     <title>Edit sighting</title>
 </head>
 <body>
+    <div id="page-wrapper">
     </html><%- include('../partials/nav.ejs') %>
 
+    <div id="text-wrapper">
     <!-- PUT existing sighting form -->
     <form action="/community/<%= user._id %>/<%= foundSighting._id %>?_method=PUT" method="POST">
         <label for="location">Location:</label>
@@ -39,5 +41,8 @@
         <button type="submit">Edit sighting</button>   
         
     </form>
+    </div>
+</div>
+<%- include('../partials/footer') %>
 </body>
 </html>

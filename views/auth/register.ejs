@@ -7,8 +7,10 @@
     <title>Register</title>
 </head>
 <body>
+    <div id="page-wrapper">
     <%- include('../partials/nav.ejs') %>
 
+    <div id="text-wrapper">
     <!-- Validation errors -->
     <% if (typeof valErrorMessages !== 'undefined' && valErrorMessages && valErrorMessages.length > 0) { %>
         <p style="background-color:rgb(255, 148, 71);">Form validation error:<br> 
@@ -49,6 +51,9 @@
         <input type="password" name="confirmPassword" id="confirmPassword" autocomplete="off"/>
         <button type="submit">Register</button>
       </form>
+    </div>
+</div>
+<%- include('../partials/footer') %>
 </body>
 </html>
 

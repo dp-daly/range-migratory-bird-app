@@ -7,7 +7,10 @@
     <title>My perch</title>
 </head>
 <body>
+    <div id="page-wrapper">
     <%- include('../partials/nav.ejs') %>
+
+    <div id="text-wrapper">
 
     <% if (typeof message !== 'undefined') { %>
         <p style="background-color:rgb(246, 71, 255);"><%= message %></p>
@@ -41,5 +44,8 @@
     <% } else { %>
         <p>No favourites found.</p>
     <% } %>
+    </div>
+    </div>
+    <%- include('../partials/footer') %>
 </body>
 </html>

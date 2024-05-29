@@ -7,8 +7,10 @@
     <title><%= sighting.species %></title>
 </head>
 <body>
+    <div id="page-wrapper">
     </html><%- include('../partials/nav.ejs') %>
 
+    <div id="text-wrapper">
     <!-- Successful creation flash message -->
     <% if (typeof message !== 'undefined') { %>
         <p style="background-color:rgb(71, 255, 129);"><%= message %></p>
@@ -52,5 +54,8 @@
                 <br>
            <% }) %>
            <% } %>
+        </div>
+    </div>
+    <%- include('../partials/footer') %>
 </body>
 </html>

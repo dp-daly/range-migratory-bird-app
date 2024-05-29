@@ -7,7 +7,9 @@
     <title>Migration feed</title>
 </head>
 <body>
+    <div id="page-wrapper">
     <%- include('../partials/nav.ejs') %>
+    <div id="text-wrapper">
     <ul>
         <% sightings.forEach(sighting => { %>
         <li>
@@ -20,5 +22,8 @@
         </li>
     <% }) %>
     </ul>
+    </div>
+    </div>
+    <%- include('../partials/footer') %>
 </body>
 </html>

@@ -7,8 +7,13 @@
     <title>Error</title>
 </head>
 <body>
+    <div id="page-wrapper">
     </html><%- include('./partials/nav.ejs') %>
+    <div id="text-wrapper">
     <h1>Error</h1>
     <p><%= systemErrorMessage %></p>
     <button onclick="window.history.back()">Go Back</button>
+    </div>
+    </div>
+    <%- include('./partials/footer') %>
 </body>
