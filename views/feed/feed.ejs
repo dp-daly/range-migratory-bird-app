@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/feed.css" />
     <title>Migration feed</title>
 </head>
 <body>
     <div id="page-wrapper">
     <%- include('../partials/nav.ejs') %>
     <div id="text-wrapper">
-    <ul>
+        <div id="feed">
+
         <% sightings.forEach(sighting => { %>
-        <li>
-            <a href="/sighting/<%= sighting._id %>"><%= sighting.species %></a>
-            <% if (sighting.publisher && sighting.publisher.firstname && sighting.publisher.lastname) { %>
-                <i>posted by <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></i>
-            <% } else if (sighting.publisher) { %>
-                <i>posted by Anonymous</i>
-                <% } %>
-        </li>
-    <% }) %>
-    </ul>
+            <article class="card">
+                <div class="dateline"><b><%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></b>, <%= sighting.createdAt %></div> 
+                <div class="post-detail">
+                <div class="img-placeholder">
+                    <a href="/sighting/<%= sighting._id %>">
+                        <img src="<%= sighting.image %>">
+                    </a>
+                </div>
+                <div class="information">
+                    <h2><a href="/sighting/<%= sighting._id %>"><%= sighting.species %></a></h2>
+                    <b>Location:</b> <%= sighting.location %> <br>
+                    <br>
+                    <b>Time sighted:</b> <%= sighting.time %>                    
+                </div>
+                </div>
+            </article>
+        <% }) %>
+
+        </div>
     </div>
     </div>
     <%- include('../partials/footer') %>

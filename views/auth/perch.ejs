@@ -15,7 +15,7 @@
     <div id="text-wrapper">
 
     <% if (typeof message !== 'undefined') { %>
-        <p style="background-color:rgb(246, 71, 255);"><%= message %></p>
+        <p style="border: 2px solid rgb(177, 7, 47);"><i><%= message %></p></i>
         <% } %>
 
     <!-- Tailored heading -->
@@ -25,7 +25,7 @@
     <a href="/community/<%= user._id %>/new-sighting"><button>Add a new sighting</button></a>
     <!-- List of sightings uploaded by the user -->
     <h3>Your sightings</h3>
-    <div class="box-wrapper">
+    <div class="box-wrapper" id="usersightings">
 
         <% sightings.forEach((sighting) => { %>
 
@@ -41,7 +41,7 @@
 
     <!-- Favourites -->
     <h3>Your favourites</h3>
-    <div class="box-wrapper">
+    <div class="box-wrapper" id="userfavourites">
 
     <% if (favourites && favourites.length > 0) { %>
 

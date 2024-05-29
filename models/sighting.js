@@ -40,7 +40,9 @@ const sightingSchema = new mongoose.Schema({
         required: false,
     },
     comments: [Comment.schema],
-});
+},
+    { timestamps: true },
+);
 
 const Sighting = mongoose.model('Sighting', sightingSchema);
 

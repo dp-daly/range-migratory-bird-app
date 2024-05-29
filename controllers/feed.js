@@ -21,8 +21,9 @@ function getDate() {
 router.get("/", async (req, res) => {
   try {
     const sightings = await Sighting.find().populate('publisher');
+    const reversedSightings = sightings.slice().reverse();
     res.render('../views/feed/feed.ejs', {
-      sightings,
+      sightings: reversedSightings,
     });
   } catch (err) {
     res.render("error.ejs", {systemErrorMessage: err.message});
