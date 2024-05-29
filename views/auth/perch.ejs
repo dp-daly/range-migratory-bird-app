@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/perch.css" />
     <title>My perch</title>
 </head>
 <body>
     <div id="page-wrapper">
+        
     <%- include('../partials/nav.ejs') %>
 
     <div id="text-wrapper">
@@ -19,31 +21,49 @@
     <!-- Tailored heading -->
     <h1><%= name %>'s perch</h1>
 
+
+    <a href="/community/<%= user._id %>/new-sighting"><button>Add a new sighting</button></a>
     <!-- List of sightings uploaded by the user -->
-    <h3>Sightings</h3>
-    <ul>
-        <% sightings.forEach(sighting => { %>
-        <li>
-            <a href="../sighting/<%= sighting._id %>"><%= sighting.species %></a>
-        </li>
-    <% }) %>
-    </ul>
+    <h3>Your sightings</h3>
+    <div class="box-wrapper">
+
+        <% sightings.forEach((sighting) => { %>
+
+        <article class="card">
+            <a href="/sighting/<%= sighting._id %>"><div class="img-placeholder"><img src="<%= sighting.image %>"></div></a>
+                <div class="card-footer">
+                    <b><%= sighting.species %></b> <br> Spotted in <%= sighting.location %>
+                </div>
+        </article>
+
+        <% }) %>
+    </div>
 
     <!-- Favourites -->
-    <h3>Favourites</h3>
+    <h3>Your favourites</h3>
+    <div class="box-wrapper">
+
     <% if (favourites && favourites.length > 0) { %>
-        <ul>
+
             <% favourites.forEach(favourite => { %>
-                <li><a href="../sighting/<%= favourite._id %>"><%= favourite.species %></li></a>
-                 <!-- Remove favourite -->
-                <form action="/community/<%= user._id %>/<%= favourite._id %>/favourites?_method=DELETE" method="POST">
-                    <button class="btn" type="submit">Remove favourite</button>
-                  </form>
+
+                <article class="card">
+                    <a href="/sighting/<%= favourite._id %>"><div class="img-placeholder"><img src="<%= favourite.image %>"></div></a>
+                    <div class="card-footer">
+                        <b><%= favourite.species %></b> <br> Spotted in <%= favourite.location %> by <%= favourite.publisher.firstname %> <%= favourite.publisher.lastname %>
+                        <form action="/community/<%= user._id %>/<%= favourite._id %>/favourites?_method=DELETE" method="POST">
+                            <button class="btn" type="submit">Remove favourite</button>
+                          </form>
+                    </div>
+
+                </article>
+
             <% }) %> 
-        </ul>
+   
     <% } else { %>
         <p>No favourites found.</p>
     <% } %>
+    </div>
     </div>
     </div>
     <%- include('../partials/footer') %>

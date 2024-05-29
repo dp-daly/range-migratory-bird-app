@@ -22,7 +22,11 @@ function getDate() {
 router.get("/:userId", async (req, res) => {
     try {
     const currentUser = req.session.user;
-    const userInDb = await User.findById(currentUser).populate('favourites');
+    // const userInDb = await User.findById(currentUser).populate('favourites')
+    const userInDb = await User.findById(currentUser).populate({
+        path: 'favourites',
+        populate: { path: 'publisher' }
+    });
     const sightings = await Sighting.find({ publisher: currentUser }).populate();
     res.render("../views/auth/perch.ejs", {
         name: userInDb.firstname,

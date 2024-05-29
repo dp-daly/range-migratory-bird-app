@@ -7,20 +7,8 @@
     flex-direction: column;
     gap: 15px;
     height: auto;
-    flex-grow: 1; 
+    flex-grow: 1;
     margin: 0px 60px 0px 60px;
-}
-
-.hero {
-    display: flex;
-    height: 50vh; 
-    align-items: center; 
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px; 
-    margin: 0px 0px 20px 0px;
-    background-image: url('https://assets-global.website-files.com/5e8ffd61d516146f7ddc860b/5f5f8d12c1e58d003564e9c3_Sandhill-Cranes_Migration_1.jpg');
-    background-size: cover; 
 }
 
 .box-wrapper {
@@ -28,7 +16,7 @@
     height: auto;
     width: auto;
     flex-grow: 1; 
-    flex-direction: row wrap;
+    flex-flow: row wrap;
     justify-content: center;
     gap: 30px;
     padding: 0px 20px 50px 20px; 
@@ -59,3 +47,4 @@
 .card-footer * {
     margin-top: auto;
   }
+  
