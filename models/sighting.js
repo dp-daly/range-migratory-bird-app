@@ -8,7 +8,7 @@ const sightingSchema = new mongoose.Schema({
     },
     date: {
         type: String,
-        required: true,
+        required: false,
     },
     time: {
         type: String, 

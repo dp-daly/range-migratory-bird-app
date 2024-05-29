@@ -17,38 +17,31 @@
     <div class="hero">
     
     </div>
-
+    <h3>Most recent community sightings</h3>
     <div class="box-wrapper">
 
         <% sightings.forEach((sighting) => { %>
 
         <article class="card">
             <div class="img-placeholder"><img src="<%= sighting.image %>"></div>
-                <div class="card-footer"></div>
+                <div class="card-footer">
+                    <b><%= sighting.species %></b> <br> spotted by <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %> in <%= sighting.location %>
+                </div>
         </article>
 
         <% }) %>
 
     </div>
-
+    <h3>Most discussed sightings</h3>
     <div class="box-wrapper">
-
+        <% mostDiscussed.forEach((discussed) => { %>
         <article class="card">
-            <div class="img-placeholder"></div>
-                <div class="card-footer"></div>
+            <div class="img-placeholder"><img src="<%= discussed.image %>"></div>
+                <div class="card-footer">
+                    <b><%= discussed.species %></b> <br> spotted by <%= discussed.publisher.firstname %> <%= discussed.publisher.lastname %> in <%= discussed.location %>
+                </div>
         </article>
-
-        <article class="card">
-            <div class="img-placeholder"></div>
-                <div class="card-footer"></div>
-        </article>
-
-        <article class="card">
-            <div class="img-placeholder"></div>
-                <div class="card-footer"></div>
-        </article>
-
-    </div>
+        <% }) %>
     
     </div>
     </div>

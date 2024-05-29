@@ -68,10 +68,13 @@ app.use(
 app.get("/", async (req, res) => {
   try {
     const sightings = await Sighting.find().populate('publisher');
-    const sortedSightings = sightings.reverse();
-    const mostRecent = sortedSightings.slice(0, 3);
+    const reversedSightings = sightings.slice().reverse();
+    const mostRecent = reversedSightings.slice(0, 3);
+    const sortedSightings = sightings.slice().sort((a, b) => b.comments.length - a.comments.length);
+    const mostDiscussed = sortedSightings.slice(0, 3);
     res.render('index.ejs', {
       sightings: mostRecent,
+      mostDiscussed,
     });
   } catch (err) {
     res.render("error.ejs", {systemErrorMessage: err.message});
