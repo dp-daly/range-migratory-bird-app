@@ -12,8 +12,7 @@ const MongoStore = require("connect-mongo");
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const Comment = require('./models/comment');
-const Sightings = require('./models/sighting');
-const User = require('./models/user');
+const Sighting = require('./models/sighting');
 
 /*-------------------------------- Controllers/Port --------------------------------*/
 const authController = require('./controllers/auth.js');
@@ -65,9 +64,20 @@ app.use(
 
 
 /*-------------------------------- Routes --------------------------------*/
-app.get("/", (req, res) => {
-    res.render("index.ejs")
-})
+
+app.get("/", async (req, res) => {
+  try {
+    const sightings = await Sighting.find().populate('publisher');
+    const sortedSightings = sightings.reverse();
+    const mostRecent = sortedSightings.slice(0, 3);
+    res.render('index.ejs', {
+      sightings: mostRecent,
+    });
+  } catch (err) {
+    res.render("error.ejs", {systemErrorMessage: err.message});
+  }
+});
+
 
 app.get("*", function (req, res) {
   res.render("error.ejs", { systemErrorMessage: "Error 404: Page not found." });

@@ -20,20 +20,14 @@
 
     <div class="box-wrapper">
 
+        <% sightings.forEach((sighting) => { %>
+
         <article class="card">
-            <div class="img-placeholder"></div>
+            <div class="img-placeholder"><img src="<%= sighting.image %>"></div>
                 <div class="card-footer"></div>
         </article>
 
-        <article class="card">
-            <div class="img-placeholder"></div>
-                <div class="card-footer"></div>
-        </article>
-
-        <article class="card">
-            <div class="img-placeholder"></div>
-                <div class="card-footer"></div>
-        </article>
+        <% }) %>
 
     </div>
 

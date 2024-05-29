@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+  <% if (user) { %>
   <div id="signedinstatus">
-  <i><p style="font-size: small;">You are signed in as <%= user.firstname %></p></i>
+ <i><p style="font-size: small;">You are signed in as <%= user.firstname %></p></i> 
 </div>
+<% } %>
   <div id="nav-wrapper">
     <div id="navbar">
       <a href="/"><img src="https://i.ibb.co/HK4kvYZ/Copy-of-Range-logo.png" alt="RANGE logo" id="logo"></a>
