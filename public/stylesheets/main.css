@@ -61,6 +61,7 @@ body {
 
 #footer-wrapper {
     display: flex;
+    background-color: #cdd3d3;
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 70px 0px 70px;
