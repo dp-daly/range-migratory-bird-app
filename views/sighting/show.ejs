@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/show.css" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <title><%= sighting.species %></title>
 </head>
@@ -16,46 +17,74 @@
         <p style="background-color:rgb(71, 255, 129);"><%= message %></p>
         <% } %>
 
+    <div class="card">
     <!-- Render sighting -->
-    <img src="<%= sighting.image %>" alt="<%= sighting.species %>" width="400">
-    <h1><%= sighting.species %></h1>
-    <h2><%= sighting.location %>, <%= sighting.date %>, <%= sighting.time %></h2>
-
-    <!-- Add to favourites -->
-    <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
-        <button class="btn" type="submit">Add to favourites</button>
-    </form>
-
-    <% if (currentUser === publisher) { %>
+    <div class="img-placeholder">
+        <img src="<%= sighting.image %>" alt="<%= sighting.species %>">
+    </div>
+     
     <!-- Edit details / remove sighting -->
-    <br><p>To be conditionally rendered if user is publisher:</p>
-    <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
+    <div class="controls">
+        <% if (currentUser === publisher) { %>
+        <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
+    
+        <form action="/community/<%= user._id %>/<%= sighting._id %>?_method=DELETE" method="POST">
+            <button class="btn" type="submit">Remove sighting</button>
+        </form>
+        <% } else { %>
+        <!-- Add to favourites -->
+        <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
+            <button class="btn" type="submit">Add to favourites</button>
+        </form>
+        <% } %>
+    </div>
 
-    <form action="/community/<%= user._id %>/<%= sighting._id %>?_method=DELETE" method="POST">
-        <button class="btn" type="submit">Remove sighting</button>
-    </form>
-    <% } %>
-
+    <div class="showbody">
+        <h1><%= sighting.species %></h1>
+        <p style="color:rgb(227, 168, 19);">Contributor: <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %> <BR>
+            Spotted in <%= sighting.location %>, <%= sighting.date %>, <%= sighting.time %></p>
+        
+        <p><%= sighting.description %></p>
+    </div>
+</div>
+</div>
+<section id="discussion">
+    <br>
+    <br>
     <!-- Comments section -->
-    <h3>Join the conversation</h3>
+    <div id="header"><h3>Join the conversation</h3></div>
 
+    Your comment:
+    <BR>
     <!-- Add a comment -->
+    <br>
     <form action="/community/<%= user._id %>/<%= sighting._id %>" method="POST">
-        <label for="text">Your comment:</label>
-        <textarea type="text" name="text" id="text"></textarea>
-        <button type="submit">Post</button>
+        <textarea class="comment-box" type="text" name="text" id="text"></textarea>
         <br>
+        <button type="submit">Post</button>
     </form>
+    <BR>
+    <BR>
+    <div class="displaycomments">
     <!-- Display all comments -->
         <% if (comments) { %>
             <% comments.forEach((comment) => { %>
-                <b><%= comment.commenter %></b><br>
+                <div id="comment">
+                <span id="commenter"><%= comment.commenter %></span>
+                <br>
+                <br>
                 <%= comment.text %>
                 <br>
+                <br>
+                <br>
+            </div>
            <% }) %>
            <% } %>
         </div>
     </div>
+ </section>
+</div>
+</div>
     <%- include('../partials/footer') %>
 </body>
 </html>
