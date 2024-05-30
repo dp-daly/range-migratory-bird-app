@@ -64,7 +64,7 @@
     <BR>
     <!-- Add a comment -->
     <br>
-    <form action="/community/<%= user._id %>/<%= sighting._id %>" method="POST">
+    <form id="commentform" action="/community/<%= user._id %>/<%= sighting._id %>" method="POST">
         <textarea class="comment-box" type="text" name="text" id="text"></textarea>
         <br>
         <button type="submit">Post</button>

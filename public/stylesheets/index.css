@@ -48,6 +48,10 @@
     padding: 0px 20px 20px 20px; 
 }
 
+#top {
+    border-bottom: 2px dotted goldenrod;
+}
+
 #lower {
     margin-bottom: 50px;
 }

@@ -18,6 +18,14 @@
     zoom: 0.80;
 }
 
+#header {
+    display: flex;
+}
+
+#live {
+    height: 50px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
