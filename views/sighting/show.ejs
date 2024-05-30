@@ -8,6 +8,8 @@
     <title><%= sighting.species %></title>
 </head>
 <body>
+    <body onLoad="window.scroll(0, 80)">
+
     <div id="page-wrapper">
     </html><%- include('../partials/nav.ejs') %>
 
@@ -46,6 +48,7 @@
         
         <p><%= sighting.description %></p>
     </div>
+    <button onclick="window.history.back()">Go Back</button>
 </div>
 </div>
 <section id="discussion">

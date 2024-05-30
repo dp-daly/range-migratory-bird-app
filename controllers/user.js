@@ -23,6 +23,7 @@ router.get("/:userId", async (req, res) => {
     try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate({
+        //method for this found on stackOverflow
         path: 'favourites',
         populate: { path: 'publisher' }
     });
@@ -102,7 +103,7 @@ router.post("/:userId/:sightingId/favourites", async (req, res) => {
     await userInDb.save();
 
     res.redirect(`/community/${req.params.userId}`);
-    
+
     } else {
         req.session.message = "This sighting is already in your favourites"
         res.redirect(`/community/${req.params.userId}`);

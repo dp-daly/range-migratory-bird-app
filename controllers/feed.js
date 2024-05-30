@@ -22,8 +22,9 @@ router.get("/", async (req, res) => {
   try {
     const sightings = await Sighting.find().populate('publisher');
     const reversedSightings = sightings.slice().reverse();
+    const limitShow = reversedSightings.slice(0, 5);
     res.render('../views/feed/feed.ejs', {
-      sightings: reversedSightings,
+      sightings: limitShow,
     });
   } catch (err) {
     res.render("error.ejs", {systemErrorMessage: err.message});

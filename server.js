@@ -70,7 +70,8 @@ app.get("/", async (req, res) => {
     const sightings = await Sighting.find().populate('publisher');
     const reversedSightings = sightings.slice().reverse();
     const mostRecent = reversedSightings.slice(0, 3);
-    const sortedSightings = sightings.slice().sort((a, b) => b.comments.length - a.comments.length);
+    const sortedSightings = sightings.slice().sort((a, b) => { 
+      return b.comments.length - a.comments.length});
     const mostDiscussed = sortedSightings.slice(0, 3);
     res.render('index.ejs', {
       sightings: mostRecent,

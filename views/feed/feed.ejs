@@ -8,6 +8,8 @@
     <title>Migration feed</title>
 </head>
 <body>
+    <body onLoad="window.scroll(0, 80)">
+
     <div id="page-wrapper">
     <%- include('../partials/nav.ejs') %>
     <div id="text-wrapper">
@@ -33,8 +35,12 @@
                 </div>
             </article>
         <% }) %>
-
         </div>
+        <section class="column">
+        <div id="banner1"></div>
+        <div id="banner2"></div>
+        <div id="banner3"></div>
+        </section>
     </div>
     </div>
     <%- include('../partials/footer') %>
