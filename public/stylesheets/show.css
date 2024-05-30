@@ -25,6 +25,17 @@
     border-radius: 8px;
 }
 
+#rare {
+    width: 100%;
+    background-image: linear-gradient(rgba(219, 157, 14, 0.71), rgba(198, 111, 23, 0.551));
+    color: rgb(17, 12, 1);
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
 .controls {
     display: flex;
     width: 400px;

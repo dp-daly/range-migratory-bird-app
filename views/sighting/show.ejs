@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title><%= sighting.species %></title>
 </head>
-<body>
     <body onLoad="window.scroll(0, 80)">
 
     <div id="page-wrapper">
@@ -25,6 +24,9 @@
     <div class="card">
     <!-- Render sighting -->
     <div class="img-placeholder">
+        <% if (sighting.rare === true) { %>
+        <p id="rare">Rare</p>
+        <% } %>
         <img src="<%= sighting.image %>" alt="<%= sighting.species %>">
     </div>
      
