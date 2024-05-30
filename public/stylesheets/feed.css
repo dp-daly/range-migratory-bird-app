@@ -2,18 +2,20 @@
     display: flex;
     gap: 15px;
     height: auto;
-    flex-grow: 1; 
     margin: 0px 60px 0px 60px;
 }
 
 #feed {
     display: flex;
     flex-direction: column; 
-    margin: 0px 50px 0px 50px;
+    margin: 0px 50px 50px 50px;
     height: auto;
     width: 70%;
     gap: 30px;
     padding: 20px;
+    /* transform: scale(0.85); 
+    transform-origin: top left; */
+    zoom: 0.80;
 }
 
 .card {
@@ -28,8 +30,8 @@
     width: auto;
     height: auto;
     flex-grow: 1; 
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/169/676/small/diagonal-japanese-geometric-wave-style-abstract-overlapping-circle-wavy-line-shape-seamless-pattern-with-subtle-blue-color-background-free-vector.jpg');
-    background-size: fill; 
+    background-image: url('https://img.freepik.com/premium-vector/background-shapes_155083-30.jpg');
+    background-size: cover; 
 }
 
 .img-placeholder {
@@ -48,36 +50,71 @@
 }
 
 .dateline {
-    background-color: rgb(236, 195, 15);
+    background-color: rgb(180, 209, 242);
     border-radius: 8px; 
-}
-
-#banner1 {
-    border: 2px solid grey;
-    width: 200px;
-    height: 600px;
-    background-image: url('https://janetomlinson.com/cdn/shop/files/Bird-migration-map-SM-with-JT-sig.jpg');
-    background-size: cover; 
-}
-
-#banner2 {
-    border: 2px solid grey;
-    width: 200px;
-    height: 600px;
-    background-image: url('https://th-thumbnailer.cdn-si-edu.com/LJR_BEUtjyfcHHx7G75goMgICAo=/fit-in/1600x0/https%3A%2F%2Ftf-cmsv2-smithsonianmag-media.s3.amazonaws.com%2Ffiler%2F83%2F05%2F8305a316-996f-4b01-b07e-d62fa8b526a7%2Fspring_bird-migration.jpg');
-    background-size: cover; 
-}
-
-#banner3 {
-    border: 2px solid grey;
-    width: 200px;
-    height: 600px;
-    background-image: url('https://i.natgeofe.com/n/9559cae1-c850-4e58-a3e2-1ca22474336a/NationalGeographic_2698216.jpg?w=2560&h=1706');
-    background-size: cover; 
+    padding: 5px;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+#banner1 {
+    border: 2px solid grey;
+    width: 200px;
+    height: 530px;
+    background-image: url('https://janetomlinson.com/cdn/shop/files/Bird-migration-map-SM-with-JT-sig.jpg');
+    background-size: cover; 
+}
+
+#banner1 p {
+    width: 100%;
+    background-image: linear-gradient(rgba(150, 144, 144, 0.71), rgba(173, 164, 164, 0.551));
+    color: lightgray;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+#banner2 {
+    border: 2px solid grey;
+    width: 200px;
+    height: 530px;
+    background-image: url('https://th-thumbnailer.cdn-si-edu.com/LJR_BEUtjyfcHHx7G75goMgICAo=/fit-in/1600x0/https%3A%2F%2Ftf-cmsv2-smithsonianmag-media.s3.amazonaws.com%2Ffiler%2F83%2F05%2F8305a316-996f-4b01-b07e-d62fa8b526a7%2Fspring_bird-migration.jpg');
+    background-size: cover; 
+}
+
+#banner2 p {
+    width: 100%;
+    background-image: linear-gradient(rgba(150, 144, 144, 0.71), rgba(173, 164, 164, 0.551));
+    color: lightgray;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+}
+
+#banner3 {
+    border: 2px solid grey;
+    width: 200px;
+    height: 530px;
+    background-image: url('https://i.natgeofe.com/n/9559cae1-c850-4e58-a3e2-1ca22474336a/NationalGeographic_2698216.jpg?w=2560&h=1706');
+    background-size: cover; 
+}
+
+#banner3 p {
+    width: 100%;
+    background-image: linear-gradient(rgba(150, 144, 144, 0.71), rgba(173, 164, 164, 0.551));
+    color: lightgray;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    margin: 0;
 }

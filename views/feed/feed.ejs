@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <link rel="stylesheet" href="/stylesheets/feed.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Migration feed</title>
 </head>
 <body>
@@ -14,7 +17,7 @@
     <%- include('../partials/nav.ejs') %>
     <div id="text-wrapper">
         <div id="feed">
-
+            <h1>Live migration feed</h1>
         <% sightings.forEach(sighting => { %>
             <article class="card">
                 <div class="dateline">&nbsp; &nbsp; <b><%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></b>, <%= sighting.createdAt %></div> 
@@ -37,9 +40,10 @@
         <% }) %>
         </div>
         <section class="column">
-        <div id="banner1"></div>
-        <div id="banner2"></div>
-        <div id="banner3"></div>
+        Latest articles:
+        <div id="banner1"><p>New insights into flypaths out of the UK</p></div>
+        <div id="banner2"><p>Podcast: Watching dusk arrivals in the Carribbean</p></div>
+        <div id="banner3"><p>Revisiting Canada's winter residents</p></div>
         </section>
     </div>
     </div>

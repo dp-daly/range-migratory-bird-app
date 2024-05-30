@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Helvetica;
+    font-family: Bitter, helvetica;
 }
 
 a {
@@ -35,6 +35,8 @@ a:hover {
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    border-top: 5px solid #f9cd0b;;
+
 }
 
 #signinout {
@@ -46,6 +48,8 @@ a:hover {
 
 body {
     background-color: #cdd3d3;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/169/676/small/diagonal-japanese-geometric-wave-style-abstract-overlapping-circle-wavy-line-shape-seamless-pattern-with-subtle-blue-color-background-free-vector.jpg');
+    background-size: fill; 
     flex-direction: column;
     height: auto;
 }
@@ -61,10 +65,10 @@ body {
 
 #footer-wrapper {
     display: flex;
-    background-color: #cdd3d3;
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 70px 0px 70px;
+    border-top: 5px solid #f9cd0b;;
 }
 
 .footer-columns {

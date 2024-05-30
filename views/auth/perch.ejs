@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <link rel="stylesheet" href="/stylesheets/perch.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>My perch</title>
 </head>
 <body>
@@ -25,8 +28,10 @@
 
 
     <a href="/community/<%= user._id %>/new-sighting"><button>Add a new sighting</button></a>
+
     <!-- List of sightings uploaded by the user -->
-    <h3>Your sightings</h3>
+    <h3 id="sightings">Your sightings</h3>
+    <section id="first">
     <div class="box-wrapper" id="usersightings">
 
         <% sightings.forEach((sighting) => { %>
@@ -40,9 +45,10 @@
 
         <% }) %>
     </div>
-
+</section>
     <!-- Favourites -->
     <h3>Your favourites</h3>
+<section id="second">
     <div class="box-wrapper" id="userfavourites">
 
     <% if (favourites && favourites.length > 0) { %>
@@ -66,6 +72,7 @@
         <p>No favourites found.</p>
     <% } %>
     </div>
+</section>
     </div>
     </div>
     <%- include('../partials/footer') %>
