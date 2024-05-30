@@ -16,13 +16,13 @@
     </html><%- include('../partials/nav.ejs') %>
 
     <div id="text-wrapper">
-    <!-- Successful creation flash message -->
+
     <% if (typeof message !== 'undefined') { %>
         <p style="background-color:rgb(71, 255, 129);"><%= message %></p>
         <% } %>
 
     <div class="card">
-    <!-- Render sighting -->
+
     <div class="img-placeholder">
         <% if (sighting.rare === true) { %>
         <p id="rare">Rare</p>
@@ -30,7 +30,6 @@
         <img src="<%= sighting.image %>" alt="<%= sighting.species %>">
     </div>
      
-    <!-- Edit details / remove sighting -->
     <div class="controls">
         <% if (currentUser === publisher) { %>
         <button id="control-btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
@@ -39,7 +38,7 @@
             <button type="submit" id="control-btn">Remove</button>
         </form>
         <% } else { %>
-        <!-- Add to favourites -->
+
         <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
             <button type="submit" id="control-btn">Add to favourites</button>
         </form>
@@ -59,13 +58,13 @@
 <section id="discussion">
     <br>
     <br>
-    <!-- Comments section -->
+
     <div id="header"><h3>Join the conversation</h3></div>
 
     Your comment:
     <BR>
-    <!-- Add a comment -->
-    <br>
+
+    <BR>
     <form id="commentform" action="/community/<%= user._id %>/<%= sighting._id %>" method="POST">
         <textarea class="comment-box" type="text" name="text" id="text"></textarea>
         <br>
@@ -74,7 +73,7 @@
     <BR>
     <BR>
     <div class="displaycomments">
-    <!-- Display all comments -->
+
         <% if (comments) { %>
             <% comments.forEach((comment) => { %>
                 <div id="comment">

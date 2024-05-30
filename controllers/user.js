@@ -132,6 +132,7 @@ router.post("/:userId/:sightingId", async (req, res) => {
     const newComment = {
         text: req.body.text,
         commenter: `${commenter.firstname} ${commenter.lastname}`,
+        commenterId: `${commenter._id}`,
     };
     foundSighting.comments.push(newComment);
     await foundSighting.save();

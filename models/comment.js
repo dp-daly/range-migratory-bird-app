@@ -6,6 +6,7 @@ const commentSchema = new mongoose.Schema({
         required: true,
     },
     commenter: {type: String},
+    commenterId: {type: String},
 },
     { timestamps: true },
 );

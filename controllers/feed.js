@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
     const reversedSightings = sightings.slice().reverse();
     const limitShow = reversedSightings.slice(0, 5);
     res.render('../views/feed/feed.ejs', {
-      sightings: limitShow,
+      sightings: reversedSightings,
     });
   } catch (err) {
     res.render("error.ejs", {systemErrorMessage: err.message});
