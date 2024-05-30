@@ -26,15 +26,15 @@
     <!-- Edit details / remove sighting -->
     <div class="controls">
         <% if (currentUser === publisher) { %>
-        <button class="btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
+        <button id="control-btn"><a href="/community/<%= user._id %>/<%= sighting._id %>/edit">Edit details</a></button>
     
         <form action="/community/<%= user._id %>/<%= sighting._id %>?_method=DELETE" method="POST">
-            <button class="btn" type="submit">Remove sighting</button>
+            <button type="submit" id="control-btn">Remove</button>
         </form>
         <% } else { %>
         <!-- Add to favourites -->
         <form action="/community/<%= user._id %>/<%= sighting._id %>/favourites" method="POST">
-            <button class="btn" type="submit">Add to favourites</button>
+            <button type="submit" id="control-btn">Add to favourites</button>
         </form>
         <% } %>
     </div>

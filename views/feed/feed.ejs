@@ -15,7 +15,7 @@
 
         <% sightings.forEach(sighting => { %>
             <article class="card">
-                <div class="dateline"><b><%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></b>, <%= sighting.createdAt %></div> 
+                <div class="dateline">&nbsp; &nbsp; <b><%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %></b>, <%= sighting.createdAt %></div> 
                 <div class="post-detail">
                 <div class="img-placeholder">
                     <a href="/sighting/<%= sighting._id %>">
@@ -25,6 +25,8 @@
                 <div class="information">
                     <h2><a href="/sighting/<%= sighting._id %>"><%= sighting.species %></a></h2>
                     <b>Location:</b> <%= sighting.location %> <br>
+                    <br>
+                    <b>Date sighted:</b> <%= sighting.date %><br>
                     <br>
                     <b>Time sighted:</b> <%= sighting.time %>                    
                 </div>

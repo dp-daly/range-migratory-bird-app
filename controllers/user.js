@@ -91,14 +91,18 @@ router.delete("/:userId/:sightingId", async (req, res) => {
 
 router.post("/:userId/:sightingId/favourites", async (req, res) => {
     try {
+
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser);
-    const favouriteInDb = userInDb.favourites.includes(req.params.sightingId);
 
+    const favouriteInDb = userInDb.favourites.includes(req.params.sightingId);
     if (favouriteInDb === false) {
     userInDb.favourites.push(req.params.sightingId);
+
     await userInDb.save();
+
     res.redirect(`/community/${req.params.userId}`);
+    
     } else {
         req.session.message = "This sighting is already in your favourites"
         res.redirect(`/community/${req.params.userId}`);

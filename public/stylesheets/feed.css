@@ -29,6 +29,8 @@
     width: auto;
     height: auto;
     flex-grow: 1; 
+    background-image: url('https://img.freepik.com/free-vector/subtle-rombus-white-gray-pattern-background_1017-25098.jpg');
+    background-size: cover; 
 }
 
 .img-placeholder {
@@ -48,10 +50,5 @@
 
 .dateline {
     background-color: rgb(236, 195, 15);
-}
-
-#information {
-    width: auto;
-    height: auto;
-    flex-grow: 1; 
+    border-radius: 8px; 
 }

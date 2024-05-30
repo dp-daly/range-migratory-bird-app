@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/forms.css" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <title>Add a new sighting</title>
 </head>
@@ -32,13 +33,15 @@
       </p>
       <% } %>
 
+      <h1>Add a new sighting</h1>
+
     <!-- POST new sighting form -->
     <form action="/feed" method="POST">
-        <label for="location">Location:</label>
+        <label for="location">Location:*</label>
         <input type="text" name="location" value="<%= typeof formData !== 'undefined' ? formData.location : '' %>"  autocomplete="off">
-        <label for="date">Date:</label>
+        <label for="date">Date:*</label>
         <input type="text" name="date" value="<%= date %>" autocomplete="off">
-        <label for="time">Time:</label>
+        <label for="time">Time:*</label>
         <select type="text" name="time">
             <option value="Early morning">Early morning</option>
             <option value="Mid-morning<">Mid-morning</option>
@@ -47,19 +50,22 @@
             <option value="Evening">Evening</option>
             <option value="Night">Night</option>
         </select>        
-        <label for="species">Species:</label>
+        <label for="species">Species:*</label>
         <input type="text" name="species" value="<%= typeof formData !== 'undefined' ? formData.species : '' %>" autocomplete="off">
         <label for="subspecies">Subspecies <i>(optional)</i>:</label>
         <input type="text" name="subspecies" value="<%= typeof formData !== 'undefined' ? formData.subspecies : '' %>" autocomplete="off">
-        <label for="rare">Rare:</label>
-        <input type="checkbox" name="rare" value="true" autocomplete="off">
-        <label for="image">Image:</label>
+        <span id="rare"><label for="rare">Rare:</label>
+        <input type="checkbox" name="rare" value="true" autocomplete="off"></span>
+        <label for="image">Image:*</label>
         <input type="text" name="image" value="<%= typeof formData !== 'undefined' ? formData.image : '' %>" autocomplete="off">
         <label for="description">Description <i>(optional)</i>:</label>
-        <input type="text" name="description" value="<%= typeof formData !== 'undefined' ? formData.description : '' %>"  autocomplete="off">
+        <input type="text" name="description" id="description" value="<%= typeof formData !== 'undefined' ? formData.description : '' %>"  autocomplete="off">
 
-        <button type="submit">Add sighting to migration feed</button>
+        <button type="submit" id="submit">Add sighting to migration feed</button>
+        <br>
+        <p style="color:rgb(130, 23, 23);">* Required field</p>
     </form>
+
 </div>
 </div>
 <%- include('../partials/footer') %>

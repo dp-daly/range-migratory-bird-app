@@ -11,7 +11,8 @@ router.get("/:sightingId", async (req, res) => {
         try {
             const sighting = await Sighting.findById(req.params.sightingId).populate("publisher");
             const currentUser = req.session.user._id;
-            const publisher = sighting.publisher.toString();
+            const publisher = sighting.publisher._id.toString();
+            console.log(publisher)
             const comments = sighting.comments;
             res.render("../views/sighting/show.ejs", {
                 sighting,

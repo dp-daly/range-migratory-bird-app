@@ -27,6 +27,9 @@
 
 .controls {
     display: flex;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-placeholder {
@@ -59,7 +62,7 @@
 }
 
 .comment-box {
-    width: 500%; 
+    width: 700px; 
     height: 150px; 
     padding: 10px; 
     font-size: 16px; 
@@ -83,4 +86,16 @@
 
 #commenter {
     font-weight: bold;
+}
+
+button {
+    border: 2px solid rgb(33, 167, 215);
+    border-radius: 8px; 
+    box-shadow: 0 20px 50px 0px rgba(0, 0, 0, 0.1);
+    margin: 10px 10px 10px 0px;
+    width: 25%;
+}
+
+#control-btn {
+    width: 100px;
 }

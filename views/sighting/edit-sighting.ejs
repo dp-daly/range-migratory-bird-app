@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/forms.css" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <title>Edit sighting</title>
 </head>
@@ -13,11 +14,11 @@
     <div id="text-wrapper">
     <!-- PUT existing sighting form -->
     <form action="/community/<%= user._id %>/<%= foundSighting._id %>?_method=PUT" method="POST">
-        <label for="location">Location:</label>
+        <label for="location">Location:*</label>
         <input type="text" name="location" value="<%= foundSighting.location %>" autocomplete="off">
-        <label for="date">Date:</label>
+        <label for="date">Date:*</label>
         <input type="text" name="date" value="<%= foundSighting.date %>" autocomplete="off">
-        <label for="time">Time:</label>
+        <label for="time">Time:*</label>
         <select type="text" name="time">
             <option value="Early morning" <% if (foundSighting.time === 'Early morning') { %>selected<% } %>>Early morning</option>
             <option value="Mid-morning" <% if (foundSighting.time === 'Mid-morning') { %>selected<% } %>>Mid-morning</option>
@@ -26,20 +27,21 @@
             <option value="Evening" <% if (foundSighting.time === 'Evening') { %>selected<% } %>>Evening</option>
             <option value="Night" <% if (foundSighting.time === 'Night') { %>selected<% } %>>Night</option>
         </select>        
-        <label for="species">Species:</label>
+        <label for="species">Species:*</label>
         <input type="text" name="species" value="<%= foundSighting.species %>" autocomplete="off">
         <label for="subspecies">Subspecies <i>(optional)</i>:</label>
         <input type="text" name="subspecies" value="<%= foundSighting.subspecies %>" autocomplete="off">
-        <label for="rare">Rare:</label>
-        <input type="checkbox" name="rare" <% if (foundSighting.rare) { %>checked<% } %> value="true">
+        <span id="rare"><label for="rare">Rare:</label>
+        <input type="checkbox" name="rare" <% if (foundSighting.rare) { %>checked<% } %> value="true"></span>
         <input type="hidden" name="rare" value="false" <% if (!foundSighting.rare) { %>disabled<% } %>>
-        <label for="image">Image:</label>
+        <label for="image">Image:*</label>
         <input type="text" name="image" value="<%= foundSighting.image %>" autocomplete="off">
         <label for="description">Description <i>(optional)</i>:</label>
-        <input type="text" name="description" value="<%= foundSighting.description %>"autocomplete="off">
+        <input type="text" name="description" id="description" value="<%= foundSighting.description %>"autocomplete="off">
 
         <button type="submit">Edit sighting</button>   
-        
+        <br>
+        <p style="color:rgb(130, 23, 23);">* Required field</p>
     </form>
     </div>
 </div>
