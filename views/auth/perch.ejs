@@ -37,7 +37,11 @@
         <% sightings.forEach((sighting) => { %>
 
         <article class="card">
-            <a href="/sighting/<%= sighting._id %>"><div class="img-placeholder"><img src="<%= sighting.image %>"></div></a>
+            <a href="/sighting/<%= sighting._id %>"><div class="img-placeholder">
+                <% if (sighting.rare === true) { %>
+                    <p id="rare">Rare</p>
+                    <% } %>
+                <img src="<%= sighting.image %>"></div></a>
                 <div class="card-footer">
                     <b><%= sighting.species %></b> <br> Spotted in <%= sighting.location %>
                 </div>
@@ -56,7 +60,11 @@
             <% favourites.forEach(favourite => { %>
 
                 <article class="card">
-                    <a href="/sighting/<%= favourite._id %>"><div class="img-placeholder"><img src="<%= favourite.image %>"></div></a>
+                    <a href="/sighting/<%= favourite._id %>"><div class="img-placeholder">
+                        <% if (favourite.rare === true) { %>
+                            <p id="rare">Rare</p>
+                            <% } %>
+                        <img src="<%= favourite.image %>"></div></a>
                     <div class="card-footer">
                         <b><%= favourite.species %></b> <br> Spotted in <%= favourite.location %> by <%= favourite.publisher.firstname %> <%= favourite.publisher.lastname %>
                         <form action="/community/<%= user._id %>/<%= favourite._id %>/favourites?_method=DELETE" method="POST">

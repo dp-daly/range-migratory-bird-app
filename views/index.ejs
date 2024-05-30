@@ -30,7 +30,11 @@
         <% sightings.forEach((sighting) => { %>
 
         <article class="card">
-            <a href="/sighting/<%= sighting._id %>"><div class="img-placeholder"><img src="<%= sighting.image %>"></div></a>
+            <a href="/sighting/<%= sighting._id %>"><div class="img-placeholder">
+                <% if (sighting.rare === true) { %>
+                    <p id="rare">Rare</p>
+                    <% } %>
+                <img src="<%= sighting.image %>"></div></a>
                 <div class="card-footer">
                     <b><%= sighting.species %></b> <br> Spotted by <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %> in <%= sighting.location %>
                 </div>
@@ -43,7 +47,11 @@
     <div class="box-wrapper" id="lower">
         <% mostDiscussed.forEach((discussed) => { %>
         <article class="card">
-            <a href="/sighting/<%= discussed._id %>"><div class="img-placeholder"><img src="<%= discussed.image %>"></div></a>
+            <a href="/sighting/<%= discussed._id %>"><div class="img-placeholder">
+                <% if (discussed.rare === true) { %>
+                    <p id="rare">Rare</p>
+                    <% } %>
+                <img src="<%= discussed.image %>"></div></a>
                 <div class="card-footer">
                     <b><%= discussed.species %></b> <br> Spotted by <%= discussed.publisher.firstname %> <%= discussed.publisher.lastname %> in <%= discussed.location %>
                 </div>

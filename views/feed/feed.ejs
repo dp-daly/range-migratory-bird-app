@@ -27,6 +27,9 @@
                 <div class="post-detail">
                 <div class="img-placeholder">
                     <a href="/sighting/<%= sighting._id %>">
+                        <% if (sighting.rare === true) { %>
+                            <p id="rare">Rare</p>
+                            <% } %>
                         <img src="<%= sighting.image %>">
                     </a>
                 </div>
