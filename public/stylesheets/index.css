@@ -14,10 +14,12 @@
 .hero {
     height: 60vh; 
     margin: 0px 0px 20px 0px;
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
     background-image: url('https://assets-global.website-files.com/5e8ffd61d516146f7ddc860b/5f5f8d12c1e58d003564e9c3_Sandhill-Cranes_Migration_1.jpg');
     background-size: cover; 
     cursor: pointer;
     position: relative;
+    cursor: pointer;
 }
 
 .hero p {
@@ -62,6 +64,7 @@
     background-color: gray;
     border-radius: 8px;
     overflow: hidden; 
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.5);
 }
 
 #rare {
