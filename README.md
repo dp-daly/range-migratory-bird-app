@@ -6,19 +6,19 @@
 
 Range is a website and app to log and track migratory bird sightings. 
 
-The migration feed is the core of the website and users contribute to it with their own sightings. The feed displays most recent sightings, similar to how social media feeds operate. The idea is that the timeliness inherent to migration will make this an exciting and informative user experience which should galvanise a global community of bird watchers.
+The migration feed is the core of the website. Users contribute to it with their own sightings. The feed displays most recent sightings, similar to how social media feeds operate. The idea is that the timeliness inherent to migration will make this an exciting and informative user experience which should galvanise a global community of bird watchers.
 
 ## Getting started
 
 ### Access
 
-You can access the Range here: 
+You can access Range here: 
 
 ### Functionality
 
 #### Visitors without authorisation credentials
 
-On the landing page, the visitor is able to view a preview of 'most recent sightings' added to the migration feed, as well as 'most discussed sightings'. The latter is the result of a filter which renders the sighting cards based on the number of comments it has received. 
+On the landing page, an unregistered visitor is able to view a preview of 'most recent sightings' added to the migration feed, as well as 'most discussed sightings'. 
 
 ![](./assets/readme%20images/index2.png)
 
