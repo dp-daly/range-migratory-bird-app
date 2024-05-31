@@ -12,7 +12,7 @@ The migration feed is the core of the website. Users contribute to it with their
 
 ### Access
 
-You can access Range here: https://665992f600379200200f3436--range-bird-migration.netlify.app/.
+You can access Range here: https://6659a28fc001c310bee43d47--range-bird-migration.netlify.app/.
 
 ### Functionality
 
