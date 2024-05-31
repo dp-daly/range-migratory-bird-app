@@ -38,7 +38,6 @@
         <input type="text" name="subspecies" value="<%= foundSighting.subspecies %>" autocomplete="off">
         <span id="rare"><label for="rare">Rare:</label>
         <input type="checkbox" name="rare" <% if (foundSighting.rare) { %>checked<% } %> value="true"></span>
-        <input type="hidden" name="rare" value="false" <% if (!foundSighting.rare) { %>disabled<% } %>>
         <label for="image">Image:*</label>
         <input type="text" name="image" value="<%= foundSighting.image %>" autocomplete="off">
         <label for="description">Description <i>(optional)</i>:</label>
