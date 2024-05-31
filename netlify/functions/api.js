@@ -24,7 +24,7 @@ const userController = require('../../controllers/user.js');
 // const port = process.env.PORT ? process.env.PORT : '3000';
 
 /*-------------------------------- DB Connect --------------------------------*/
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -92,4 +92,11 @@ app.get("*", function (req, res) {
 // app.listen(port, () => {
 //     console.log(`The express app is ready on port ${port}!`);
 //   });
+
+async function connectToDb() {
+    await mongoose.connect(process.env.MONGODB_URI);
+  }
+  
+  connectToDb()
+  
   module.exports.handler = serverless(app)
