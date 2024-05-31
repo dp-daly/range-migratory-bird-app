@@ -47,7 +47,9 @@ If a sighting is rare, it is adorned with a banner to distinguish the unique sig
 
 ## Accessibility
 
-Images contain alt text and high contrast colour pairings have been selected throughout.
+Images contain alt text or aria labels and high contrast colour pairings have been selected throughout. 
+
+The navbar is constant throughout the UI for simple navigation. Images and text are quite large, with a view to making access easy for all ages.
 
 ## Technology
 

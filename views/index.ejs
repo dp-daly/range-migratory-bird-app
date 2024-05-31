@@ -19,7 +19,7 @@
 
     <div id="text-wrapper">
 
-    <div class="hero">
+    <div class="hero" aria-label="Image of sandhill cranes in flight over lake.">
     <p><span class="title">Journey to the Great Plains of America</span><br>
     One of the most beautiful natural phenomena in the United States is the annual congregation of the sandhill cranes. For about a month each March, more than 500,000 sandhill cranes converge on the Platte River basin in Nebraska to rest and eat before they finish their migration to their northern breeding grounds. 
     <span style="text-decoration: underline;">Read more.</span></p>
@@ -34,7 +34,7 @@
                 <% if (sighting.rare === true) { %>
                     <p id="rare">Rare</p>
                     <% } %>
-                <img src="<%= sighting.image %>"></div></a>
+                <img src="<%= sighting.image %>" alt="<%= sighting.species %> image"></div></a>
                 <div class="card-footer">
                     <b><%= sighting.species %></b> <br> Spotted by <%= sighting.publisher.firstname %> <%= sighting.publisher.lastname %> in <%= sighting.location %>
                 </div>
@@ -51,7 +51,7 @@
                 <% if (discussed.rare === true) { %>
                     <p id="rare">Rare</p>
                     <% } %>
-                <img src="<%= discussed.image %>"></div></a>
+                <img src="<%= discussed.image %>" alt="<%= discussed.species %> image"></div></a>
                 <div class="card-footer">
                     <b><%= discussed.species %></b> <br> Spotted by <%= discussed.publisher.firstname %> <%= discussed.publisher.lastname %> in <%= discussed.location %>
                 </div>
