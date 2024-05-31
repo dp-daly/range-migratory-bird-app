@@ -78,6 +78,9 @@ For this, I had to execute a more complex .populate() method to specify the path
 
 ![](./assets/readme%20images/paths.png)
 
+### Planning materials
+
+Planning materials can be accessed here: https://trello.com/b/F7KGWC5z/range-migratory-bird-site-app.
 
 ## Improvements
 
