@@ -85,6 +85,7 @@ For this, I had to execute a more complex .populate() method to specify the path
 
 Future improvements may include: 
 
+* More informed grounding of the migration concept, perhaps centred around only one species at first and functionality to explore additional species.
 * Interaction with a relevant API, such as bird information or location-based autofill.
 * Pagination in the migration feed.
 * The ability for users to delete comments.
