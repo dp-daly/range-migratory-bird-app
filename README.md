@@ -12,17 +12,15 @@ The migration feed is the core of the website. Users contribute to it with their
 
 ### Access
 
-You can access Range here: 
+You can access Range here: https://665992f600379200200f3436--range-bird-migration.netlify.app/.
 
 ### Functionality
 
 #### Visitors without authorisation credentials
 
-On the landing page, an unregistered visitor is able to view a preview of 'most recent sightings' added to the migration feed, as well as 'most discussed sightings'. 
+On the landing page, an unregistered visitor is able to preview 'most recent sightings' as well as 'most discussed sightings'. They can also access the migration feed, but will be redirected to the sign in page if they attempt to open a specific sighting page.
 
 ![](./assets/readme%20images/index2.png)
-
-As a visitor they may also view the migration feed.
 
 ![](./assets/readme%20images/migration-feed.png)
 
@@ -43,7 +41,7 @@ The user's own creations and favourites are accessible through their 'perch' pag
 ![](./assets/readme%20images/perch1.png)
 ![](./assets/readme%20images/perch2.png)
 
-If a sighting is rare, it is adorned with a banner to signify the unique sighting.
+If a sighting is rare, it is adorned with a banner to distinguish the unique sighting.
 
 ![](./assets/readme%20images/rare.png)
 
@@ -72,7 +70,7 @@ Within the User model there is a reference to Sighting in the "favourites" prope
 
 ![](./assets/readme%20images/User.png)
 
-This meant that I needed to populate a reference with a reference: from the User "favourites" property linking to Sighting, to the Sighting "publisher" property which linked back to the relevant User.
+This meant that I needed to populate a reference within a reference: from the User "favourites" property linking to Sighting, to the Sighting "publisher" property which linked back to the relevant User in the database.
 
 ![](./assets/readme%20images/Sighting.png)
 
@@ -89,4 +87,4 @@ Future improvements may include:
 * Interaction with a relevant API, such as bird information or location-based autofill.
 * Pagination in the migration feed.
 * The ability for users to delete comments.
-* Alternating colours on comments.
+* Different colours on alternate user comments.
