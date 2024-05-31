@@ -28,8 +28,6 @@ As a visitor they may also view the migration feed.
 
 The visitor is invited to sign in or register in the authorisation section of the navigation bar, the position of which is constant throughout the UI. 
 
-
-
 #### Authorised users
 
 Once signed in, an authorised user will see their name appear at the top of the navigation bar.
@@ -65,6 +63,23 @@ Images contain alt text and high contrast colour pairings have been selected thr
 - Javascript
 - HTML
 - CSS
+
+### Select logic
+
+The app uses three main MongoDB models: User, Sighting, and Comment.
+
+Within the User model there is a reference to Sighting in the "favourites" property. When rendering favourites on the user's "perch" page, I needed to reference not only the Sightings that had been pushed to the "favourites" array, but the publisher of that sighting. 
+
+![](./assets/readme%20images/User.png)
+
+This meant that I needed to populate a reference with a reference: from the User "favourites" property linking to Sighting, to the Sighting "publisher" property which linked back to the relevant User.
+
+![](./assets/readme%20images/Sighting.png)
+
+For this, I had to execute a more complex .populate() method to specify the paths.
+
+![](./assets/readme%20images/paths.png)
+
 
 ## Improvements
 

@@ -5,7 +5,6 @@ const User = require('../models/user.js');
 const Sighting = require('../models/sighting.js');
 
 /*-------------------------------- Date assignment to prefill new sighting form in case of valErrors --------------------------------*/
-//! Look into making date globally available in middleware to make this more DRY. 
 let dateToday = ""
 
 function getDate() {

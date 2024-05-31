@@ -23,7 +23,6 @@ router.get("/:userId", async (req, res) => {
     try {
     const currentUser = req.session.user;
     const userInDb = await User.findById(currentUser).populate({
-        //method for this found on stackOverflow
         path: 'favourites',
         populate: { path: 'publisher' }
     });
